@@ -1,0 +1,9 @@
+
+package com.mycompany.stock.watcher;
+import java.io.IOException;
+import javafx.fxml.FXML;
+
+public class RegisterController {
+      private void switchToSecondary() throws IOException {
+        App.setRoot("secondary"); }
+}
