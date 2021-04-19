@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Login.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="151.0" layoutY="483.0" prefHeight="40.0" prefWidth="345.0" promptText="Username">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+      <PasswordField layoutX="151.0" layoutY="535.0" prefHeight="40.0" prefWidth="345.0" promptText="Password">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="115.0" layoutY="597.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
+      <Button layoutX="333.0" layoutY="597.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
+   </children>
+</AnchorPane>
