@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.stockwatcher.LoginController">
    <children>
       <ImageView fitHeight="750.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,6 +26,6 @@
          </font>
       </PasswordField>
       <Button layoutX="115.0" layoutY="597.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
-      <Button layoutX="333.0" layoutY="597.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
+      <Button fx:id="registerButton" layoutX="333.0" layoutY="597.0" mnemonicParsing="false" onAction="#switchToRegister" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
    </children>
 </AnchorPane>
