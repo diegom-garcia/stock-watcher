@@ -71,24 +71,4 @@ public class App extends Application {
         connection.close();
     }
     
-    public void testeSelect() {
-
-        try {
-            ResultSet result = DBConnection.getInstance().getStatement().executeQuery("SELECT * FROM produto"); //NOI18N
-            while (result.next()) {
-                String linha[] = {
-                    String.valueOf(result.getInt(1)),
-                    result.getString(2),
-                    result.getString(3),
-                    String.valueOf(result.getInt(4))
-                };
-                modelo.addRow(linha);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-}
-
-
-
 }
