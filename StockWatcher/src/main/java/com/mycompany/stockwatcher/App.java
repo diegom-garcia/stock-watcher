@@ -8,8 +8,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -30,6 +34,7 @@ public class App extends Application {
         abrirConexao();
         stage.setScene(scene);
         stage.show();
+        //funcionaPeloAmorDeDeus();
        
     }
     
@@ -42,6 +47,7 @@ public class App extends Application {
         return fxmlLoader.load();
         
     }
+    
 
     public static void main(String[] args) {
         launch();
@@ -63,6 +69,7 @@ public class App extends Application {
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("oie");
+            
         }
     }
 
@@ -70,5 +77,22 @@ public class App extends Application {
         statement.close();
         connection.close();
     }
+    
+//    public void funcionaPeloAmorDeDeus(){
+//        String sql = "INSERT INTO usuario (nome, login, senha) values (?,?,?)";
+//        try {
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setString(1, "diego");
+//            stm.setString(2, "garcia");
+//            stm.setInt(3, 12345);
+//            stm.execute();
+//            stm.close();
+//            try {
+//                fecharConexao();
+//            } catch (Exception ex) {
+//                System.out.println(ex);            }
+//        } catch (SQLException ex) {
+//            System.out.println(ex);        }
+//    }
     
 }
