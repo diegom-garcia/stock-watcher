@@ -15,17 +15,17 @@
             <Image url="@image/Login.png" />
          </image>
       </ImageView>
-      <TextField layoutX="151.0" layoutY="483.0" prefHeight="40.0" prefWidth="345.0" promptText="Username">
+      <TextField fx:id="txtUsername" layoutX="151.0" layoutY="483.0" prefHeight="40.0" prefWidth="345.0" promptText="Username">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="151.0" layoutY="535.0" prefHeight="40.0" prefWidth="345.0" promptText="Password">
+      <PasswordField fx:id="txtPassword" layoutX="151.0" layoutY="535.0" prefHeight="40.0" prefWidth="345.0" promptText="Password">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="115.0" layoutY="597.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
+      <Button fx:id="loginButton" layoutX="115.0" layoutY="597.0" mnemonicParsing="false" onAction="#acaoLoginBtn" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
       <Button fx:id="registerButton" layoutX="333.0" layoutY="597.0" mnemonicParsing="false" onAction="#switchToRegister" opacity="0.0" prefHeight="50.0" prefWidth="147.0" text="Button" />
    </children>
 </AnchorPane>

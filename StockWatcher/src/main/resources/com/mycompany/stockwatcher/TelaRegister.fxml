@@ -8,34 +8,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.stockwatcher.TelaRegisterController">
    <children>
       <ImageView fitHeight="750.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Register.png" />
          </image>
       </ImageView>
-      <TextField layoutX="162.0" layoutY="443.0" prefHeight="39.0" prefWidth="331.0" promptText="Username">
+      <TextField fx:id="txtUserRegister" layoutX="162.0" layoutY="443.0" prefHeight="39.0" prefWidth="331.0" promptText="Username">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="164.0" layoutY="505.0" prefHeight="39.0" prefWidth="331.0" promptText="Full name">
+      <TextField fx:id="txtNameRegister" layoutX="162.0" layoutY="502.0" prefHeight="39.0" prefWidth="331.0" promptText="Full name">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="164.0" layoutY="566.0" prefHeight="39.0" prefWidth="331.0" promptText="Password">
+      <PasswordField fx:id="txtPassRegister" layoutX="162.0" layoutY="564.0" prefHeight="39.0" prefWidth="331.0" promptText="Password">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField layoutX="164.0" layoutY="620.0" prefHeight="39.0" prefWidth="331.0" promptText="Confirm Password">
+      <PasswordField fx:id="txtConPassRegister" layoutX="162.0" layoutY="622.0" prefHeight="39.0" prefWidth="331.0" promptText="Confirm Password">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </PasswordField>
-      <Button layoutX="96.0" layoutY="538.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="111.0" text="Button" />
-      <Button layoutX="272.0" layoutY="538.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="111.0" text="Button" />
+      <Button fx:id="btnRegister" layoutX="116.0" layoutY="672.0" mnemonicParsing="false" onAction="#acaoDoBotao" opacity="0.0" prefHeight="48.0" prefWidth="143.0" text="Button" />
+      <Button fx:id="btnVoltar" layoutX="337.0" layoutY="672.0" mnemonicParsing="false" onAction="#switchToLogin" opacity="0.0" prefHeight="48.0" prefWidth="143.0" text="Button" />
    </children>
 </AnchorPane>
