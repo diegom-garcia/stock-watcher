@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="710.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Ação.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblValorAtual" layoutX="43.0" layoutY="57.0" text="Label" />
+      <Label fx:id="lblMinSemanas" layoutX="187.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lblValorizacao" layoutX="335.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lblMaxSemanas" layoutX="487.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lblDivYield" layoutX="625.0" layoutY="57.0" text="Label" />
+      <Label fx:id="lblTipo" layoutX="43.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblTagAlong" layoutX="126.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblLiqDiaria" layoutX="257.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblDivUltimos" layoutX="407.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblMBruta" layoutX="531.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblMLiquida" layoutX="632.0" layoutY="146.0" text="Label" />
+      <Label fx:id="lblPL" layoutX="35.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblPVP" layoutX="140.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblVPA" layoutX="237.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblDivPL" layoutX="335.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblROIC" layoutX="442.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblROA" layoutX="538.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblROE" layoutX="639.0" layoutY="208.0" text="Label" />
+      <Label fx:id="lblPatLiquido" layoutX="43.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblDividaB" layoutX="173.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblDividaL" layoutX="285.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblSegAtuacao" layoutX="168.0" layoutY="318.0" text="Label" />
+      <Label fx:id="lblValorMercado" layoutX="140.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblFreeFloat" layoutX="285.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblTipo1" layoutX="379.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblTipo2" layoutX="379.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblTipo3" layoutX="379.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblTipo4" layoutX="379.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblTipo5" layoutX="379.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblTipo6" layoutX="379.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblDataCom" layoutX="456.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblDataCom2" layoutX="456.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblDataCom3" layoutX="456.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblDataCom4" layoutX="456.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblDataCom5" layoutX="456.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblDataCom6" layoutX="456.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblPagamento" layoutX="559.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblPagamento2" layoutX="559.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblPagamento3" layoutX="559.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblPagamento4" layoutX="559.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblPagamento5" layoutX="559.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblPagamento6" layoutX="559.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblValor" layoutX="646.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblValor2" layoutX="646.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblValor3" layoutX="646.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblValor4" layoutX="646.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblValor5" layoutX="646.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblValor6" layoutX="646.0" layoutY="369.0" text="Label" />
+      <Button fx:id="btnButton" layoutX="277.0" layoutY="14.0" mnemonicParsing="false" onAction="#initLabel" prefHeight="26.0" prefWidth="173.0" text="Button" />
+   </children>
+</AnchorPane>

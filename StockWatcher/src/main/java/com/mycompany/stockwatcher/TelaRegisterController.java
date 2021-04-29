@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -62,6 +64,9 @@ public class TelaRegisterController implements Initializable {
 
     @FXML
     private void acaoDoBotao(ActionEvent event) {
+        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert2 = new Alert(AlertType.CONFIRMATION);
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
@@ -73,10 +78,13 @@ public class TelaRegisterController implements Initializable {
         }
 
         if (txtUserRegister.getText().equals("") || txtNameRegister.getText().equals("") || txtPassRegister.getText().equals("") || txtConPassRegister.getText().equals("")) {
-            System.out.println("preencha todos os campos");
+            alert.setContentText("Preencha todos os campos");
+            alert.show();
+
         } else {
             if (!txtPassRegister.getText().equals(txtConPassRegister.getText())) {
-                System.out.println("As senhas não estão iguais");
+                alert.setContentText("As senhas não estão iguais");
+                alert.show();
             } else {
 
                 try {
@@ -91,7 +99,9 @@ public class TelaRegisterController implements Initializable {
                     if (c == 0) {
                         a++;
                         try {
-                            System.out.println("Usuario criado com sucesso!");
+                            alert2.setTitle("Sucesso");
+                            alert2.setContentText("Usuário criado com sucesso!");
+                            alert2.show();
                             PreparedStatement stm = connection.prepareStatement(sql);
                             stm.setString(1, txtNameRegister.getText());
                             stm.setString(2, txtUserRegister.getText());
@@ -108,7 +118,8 @@ public class TelaRegisterController implements Initializable {
                             System.out.println(ex);
                         }
                     } else {
-                        System.out.println("Usuario ja existe ANIMAL DE TETA");
+                        alert.setContentText("Usuário inválido, tente outro");
+                        alert.show();
                         c = 0;
                     }
 
@@ -117,8 +128,8 @@ public class TelaRegisterController implements Initializable {
                 }
             }
         }
-        if(a>0){
-            
+        if (a > 0) {
+
             try {
                 App.setRoot("TelaLogin");
             } catch (IOException ex) {

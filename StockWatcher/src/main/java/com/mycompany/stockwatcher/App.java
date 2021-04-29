@@ -31,8 +31,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
        
         scene = new Scene(loadFXML("TelaLogin"), 600, 750);
-        abrirConexao();
+        
+        //abrirConexao();
         stage.setScene(scene);
+        //stage.setResizable(false);
         stage.show();
         //funcionaPeloAmorDeDeus();
        
@@ -61,22 +63,22 @@ public class App extends Application {
     }
 
    
-    public void abrirConexao() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
-            statement = connection.createStatement();
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("oie");
-            
-        }
-    }
-
-    public void fecharConexao() throws Exception {
-        statement.close();
-        connection.close();
-    }
+//    public void abrirConexao() {
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+//            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+//            statement = connection.createStatement();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            System.out.println("oie");
+//            
+//        }
+//    }
+//
+//    public void fecharConexao() throws Exception {
+//        statement.close();
+//        connection.close();
+//    }
     
 //    public void funcionaPeloAmorDeDeus(){
 //        String sql = "INSERT INTO usuario (nome, login, senha) values (?,?,?)";

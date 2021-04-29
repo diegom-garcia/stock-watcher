@@ -1,15 +1,26 @@
-
 package conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBConnection {
-    
+
     private Connection connection;
     private Statement statement;
+
+    public Connection getConnection() {
+
+        try {
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+        } catch (SQLException ex) {
+            System.out.println("deu erro no DBconnection");
+            throw new RuntimeException(ex);
+        }
+    }
 
     public Statement getStatement() {
         return statement;
@@ -24,14 +35,16 @@ public class DBConnection {
         statement.close();
         connection.close();
     }
-    
-     public void abrirConexao() {
+
+    private void abrirConexao() {
         try {
-            Class.forName("org.gjt.mm.mysql.Driver").getConstructor().newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
             statement = connection.createStatement();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
+            System.out.println("oie");
+
         }
     }
 
@@ -39,5 +52,5 @@ public class DBConnection {
         statement.close();
         connection.close();
     }
-   
+
 }
