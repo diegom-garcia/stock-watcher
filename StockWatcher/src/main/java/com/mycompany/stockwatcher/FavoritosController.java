@@ -7,6 +7,7 @@ package com.mycompany.stockwatcher;
 
 import com.mycompany.stockwatcher.modelo.ModeloDAO;
 import com.mycompany.stockwatcher.modelo.Modelo;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,11 +22,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  *
@@ -41,6 +47,18 @@ public class FavoritosController {
     private TableColumn<Modelo, String> colAtivoAcoes;
     @FXML
     private TableColumn<Modelo, String> colAtivoFundos;
+    
+    @FXML
+    private Button btnPesquisar;
+
+    @FXML
+    private Button btnSobre;
+    
+    @FXML
+    private Button btnCarteira;
+
+    @FXML
+    private Button btnHistorico;
 
     private Connection connection;
     private Statement statement;
@@ -56,11 +74,6 @@ public class FavoritosController {
 
     }
 
-//    public ObservableList<String> atualizaTabela(){
-//        
-//        
-//        
-//    }
 
     
    public void initTable(){
@@ -91,10 +104,97 @@ public class FavoritosController {
 
         }
     }
+    @FXML
+    void acaoPesquisar(ActionEvent event) {
+        trocaTelaPesquisar(idUser);
+    }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        initTable();
-//        
-//    }
+    @FXML
+    void acaoHistorico(ActionEvent event) {
+        trocaTelaHistorico(idUser);
+    }
+
+    @FXML
+    void acaoCarteira(ActionEvent event) {
+        trocaTelaCarteira(idUser);
+    }
+
+    @FXML
+    void acaoSobre(ActionEvent event) {
+        trocaTelaSobre(idUser);
+    }
+    void trocaTelaPesquisar(String id) {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
+            PesquisarController telaP = new PesquisarController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 1110, 700));
+            telaP.setIdUser(id);
+            stage.show();
+            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void trocaTelaHistorico(String id) {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaHistorico.fxml"));
+            HistoricoController telaP = new HistoricoController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 1110, 700));
+            telaP.setIdUser(id);
+            stage.show();
+            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void trocaTelaCarteira(String id) {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCarteira.fxml"));
+            CarteiraController telaP = new CarteiraController();
+            loader.setController(telaP);
+            Scene scene = new Scene(loader.load(), 1110, 700);
+            scene.getStylesheets().add("Style.css");
+            stage.setScene(scene);;
+            telaP.setIdUser(id);
+            //telaP.initTable();
+            stage.show();
+            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void trocaTelaSobre(String id) {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaSobre.fxml"));
+            SobreController telaP = new SobreController();
+            loader.setController(telaP);
+            Scene scene = new Scene(loader.load(), 1110, 700);
+            scene.getStylesheets().add("Style.css");
+            stage.setScene(scene);;
+            telaP.setIdUser(id);
+           // telaP.initTable();
+            stage.show();
+            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

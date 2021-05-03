@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="706.0" fitWidth="1110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Historico.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnPesquisar" layoutX="2.0" layoutY="193.0" mnemonicParsing="false" onAction="#acaoPesquisar" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
+      <Button fx:id="btnFavoritos" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
+      <Button fx:id="btnCarteira" layoutX="2.0" layoutY="434.0" mnemonicParsing="false" onAction="#acaoCarteira" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
+      <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
+   </children>
+</AnchorPane>
