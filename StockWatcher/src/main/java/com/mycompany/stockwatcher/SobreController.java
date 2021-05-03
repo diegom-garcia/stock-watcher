@@ -8,8 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class HistoricoController {
-
+public class SobreController {
+    String idUser;
+    
     @FXML
     private Button btnFavoritos;
 
@@ -17,12 +18,13 @@ public class HistoricoController {
     private Button btnPesquisar;
 
     @FXML
-    private Button btnSobre;
+    private Button btnCarteira;
 
     @FXML
-    private Button btnCarteira;
-    String idUser;
+    private Button btnHistorico;
 
+    
+    
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
@@ -31,13 +33,13 @@ public class HistoricoController {
         Stage stage = new Stage();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
-            AcaoController telaP = new AcaoController();
+            PesquisarController telaP = new PesquisarController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
 
             telaP.setIdUser(id);
             stage.show();
-            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
         } catch (IOException e) {
@@ -45,17 +47,17 @@ public class HistoricoController {
         }
     }
 
-    void trocaTelaCarteira(String id) {
+    void trocaTelaHistorico(String id) {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCarteira.fxml"));
-            CarteiraController telaP = new CarteiraController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaHistorico.fxml"));
+            HistoricoController telaP = new HistoricoController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
 
             telaP.setIdUser(id);
             stage.show();
-            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
         } catch (IOException e) {
@@ -76,7 +78,7 @@ public class HistoricoController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
-            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
         } catch (IOException e) {
@@ -84,27 +86,26 @@ public class HistoricoController {
         }
     }
 
-    void trocaTelaSobre(String id) {
+    void trocaTelaCarteira(String id) {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFavoritos.fxml"));
-            FavoritosController telaP = new FavoritosController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCarteira.fxml"));
+            CarteiraController telaP = new CarteiraController();
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
             scene.getStylesheets().add("Style.css");
             stage.setScene(scene);;
 
             telaP.setIdUser(id);
-            telaP.initTable();
+            //telaP.initTable();
             stage.show();
-            Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
+            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     @FXML
     void acaoPesquisar(ActionEvent event) {
         trocaTelaPesquisar(idUser);
@@ -116,13 +117,13 @@ public class HistoricoController {
     }
 
     @FXML
-    void acaoCarteira(ActionEvent event) {
-        trocaTelaCarteira(idUser);
+    void acaoHistorico(ActionEvent event) {
+        trocaTelaHistorico(idUser);
     }
 
     @FXML
-    void acaoSobre(ActionEvent event) {
-        trocaTelaSobre(idUser);
+    void acaoCarteira(ActionEvent event) {
+        trocaTelaCarteira(idUser);
     }
-
+    
 }

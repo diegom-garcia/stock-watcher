@@ -39,17 +39,6 @@ public class ModeloDAO {
         System.out.println(id);
     }
 
-//    public void abrirConexao() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-//            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
-//            statement = connection.createStatement();
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            System.out.println("oie");
-//
-//        }
-//    }
     public boolean add(Modelo m) {
         try {
             String sql = "INSERT INTO favorito(nome_ativo,tipo_ativo,id_usuario,id_favorito) values (?,?,?)";
@@ -66,21 +55,6 @@ public class ModeloDAO {
             return false;
         }
     }
-
-//    public void trazId() {
-//        PreparedStatement stmt;
-//        int test = 0;
-//        try {
-//            stmt = connection.prepareStatement("SELECT id_usuario from usuario where login = '"+txtUsername.getText()+"'");
-//            ResultSet result = stmt.executeQuery();
-//            while (result.next()) {
-//                test = result.getInt("id_usuario");
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        //return test;
-//    }
 
     public List<Modelo> getListAcoes() {
         List<Modelo> modelo = new ArrayList<>();

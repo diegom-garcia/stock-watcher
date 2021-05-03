@@ -26,5 +26,9 @@
             <TableColumn fx:id="colAtivoFundos" prefWidth="75.0" text="Nome Ativo" />
          </columns>
       </TableView>
+      <Button fx:id="btnPesquisar" layoutX="3.0" layoutY="193.0" mnemonicParsing="false" onAction="#acaoPesquisar" opacity="0.0" prefHeight="65.0" prefWidth="290.0" text="Button" />
+      <Button fx:id="btnHistorico" layoutX="3.0" layoutY="360.0" mnemonicParsing="false" onAction="#acaoHistorico" opacity="0.0" prefHeight="59.0" prefWidth="290.0" text="Button" />
+      <Button fx:id="btnCarteira" layoutX="3.0" layoutY="435.0" mnemonicParsing="false" onAction="#acaoCarteira" opacity="0.0" prefHeight="65.0" prefWidth="290.0" text="Button" />
+      <Button fx:id="btnSobre" layoutX="3.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="65.0" prefWidth="290.0" text="Button" />
    </children>
 </AnchorPane>

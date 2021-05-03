@@ -61,40 +61,4 @@ public class App extends Application {
     public void setStatement(Statement statement) {
         this.statement = statement;
     }
-
-   
-//    public void abrirConexao() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-//            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
-//            statement = connection.createStatement();
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            System.out.println("oie");
-//            
-//        }
-//    }
-//
-//    public void fecharConexao() throws Exception {
-//        statement.close();
-//        connection.close();
-//    }
-    
-//    public void funcionaPeloAmorDeDeus(){
-//        String sql = "INSERT INTO usuario (nome, login, senha) values (?,?,?)";
-//        try {
-//            PreparedStatement stm = connection.prepareStatement(sql);
-//            stm.setString(1, "diego");
-//            stm.setString(2, "garcia");
-//            stm.setInt(3, 12345);
-//            stm.execute();
-//            stm.close();
-//            try {
-//                fecharConexao();
-//            } catch (Exception ex) {
-//                System.out.println(ex);            }
-//        } catch (SQLException ex) {
-//            System.out.println(ex);        }
-//    }
-    
 }

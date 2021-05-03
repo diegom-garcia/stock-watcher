@@ -16,8 +16,8 @@
       </ImageView>
       <Button fx:id="btnPesquisar" layoutX="2.0" layoutY="196.0" mnemonicParsing="false" onAction="#acaoPesquisar" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
       <Button fx:id="btnFavoritos" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
-      <Button fx:id="btnHistorico" layoutX="2.0" layoutY="359.0" mnemonicParsing="false" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
-      <Button fx:id="btnCarteira" layoutX="2.0" layoutY="437.0" mnemonicParsing="false" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
-      <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
+      <Button fx:id="btnHistorico" layoutX="2.0" layoutY="359.0" mnemonicParsing="false" onAction="#acaoHistorico" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
+      <Button fx:id="btnCarteira" layoutX="2.0" layoutY="444.0" mnemonicParsing="false" onAction="#acaoCarteira" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
+      <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="63.0" prefWidth="295.0" />
    </children>
 </AnchorPane>
