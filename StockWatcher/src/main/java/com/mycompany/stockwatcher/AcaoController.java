@@ -170,7 +170,7 @@ public class AcaoController {
         lblMinSemanas.setText("R$"+values[1]);
         lblValorizacao.setText(values[4]+"%");
         lblMaxSemanas.setText("R$"+values[2]);
-        lblDivYield.setText(values[3]);
+        lblDivYield.setText(values[3]+"%");
         lblTipo.setText(values[5]);
         lblTagAlong.setText(values[6]+"%");
         lblLiqDiaria.setText("R$"+values[7]);
