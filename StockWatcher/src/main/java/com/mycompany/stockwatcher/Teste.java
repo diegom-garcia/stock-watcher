@@ -31,7 +31,7 @@ public class Teste {
         String substr;
         try {
 
-            Document doc = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/xpcm11").get();
+            Document doc = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/xpcm12").get();
 
             log(doc.title());
             Elements el = doc.getElementsByClass("value");
