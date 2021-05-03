@@ -11,6 +11,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import static java.util.Collections.list;
 import static jdk.nashorn.internal.objects.NativeMath.round;
 
 /**
@@ -23,53 +25,57 @@ public class Teste {
 
     public static void main(String[] args) {
         ArrayList<Integer> index = new ArrayList<>();
-        index.add(0);
-        index.add(1);
-        index.add(2);
-        index.add(3);
-        index.add(4);
-        ArrayList<String> aux = new ArrayList<>();
-        aux.add("23.33");
-        aux.add("21.53");
-        aux.add("29.75");
-        aux.add("5.79");
-        aux.add("-9.19");
-        aux.add("ON");
-        aux.add("100");
-        aux.add("182.778.331.06");
-        aux.add("5.79");
-        aux.add("7.30");
-        aux.add("3.19");
-        aux.add("0.59");
-        aux.add("");
+        Collections.addAll(index, 0, 1, 2, 3, 4, 5, 6, 7, 11, 13, 18, 24, 27, 30, 33, 34, 35, 36, 53, 56, 58, 59, 63, 67);
+        String[] str = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
+        Integer ind = 0;
+        String substr;
         try {
-//log(""+round(Double.parseDouble(el.get(i).html().replace("%", "").replace(",", ".")), 2));        Para depois
-            /*
-        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
-        //log(doc.getElementsByClass(""));
-        
-        Elements newsHeadlines = doc.select("#mp-itn b a");
-        for (Element headline : newsHeadlines) {
-            log("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
-        }
-             */
-            Document doc = Jsoup.connect("https://statusinvest.com.br/acoes/bbse3").get();
+
+            Document doc = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/xpcm11").get();
+
             log(doc.title());
             Elements el = doc.getElementsByClass("value");
-            for (int i = 0; i < el.size(); i++) {
-//                if (index.contains(i)) {
-                log(el.get(i).html().replace("%", ""));
-//                    log("" + i);
-//                if (aux.contains(el.get(i).html().replace("%", "").replace(",", "."))) {
-//                    log("" + i);
-//                }
-//                }
-//                }
+            Elements sub = doc.getElementsByClass("sub-value");
+            Elements table = doc.getElementsByClass("list").get(7).getElementsByTag("tbody").get(0).getElementsByTag("tr");
+            Elements el2 = doc.getElementsByClass("mb-5 d-flex flex-wrap flex-lg-nowrap justify-between");
+            for (int i = 0; i < el2.size(); i++) {
+                substr = el2.get(i).getElementsByClass("value d-inline-block fs-5 fw-900").html().replace("%", "");
+                log(substr);
             }
-// 0,1,2,3,4,5,6,7,11,13,18,24,27,30
-            //if (els != null && els.size() > 0) {
-            //    log(els.get(0).text());
-            //}
+            for (int i = 0; i < el2.size(); i++) {
+                substr = el2.get(i).getElementsByClass("sub-value fs-4 lh-3").html().replace("%", "");
+                log(substr);
+            }
+//            for (int i = 0; i < el.size(); i++) {
+//                substr =i+ el.get(i).html().replace("%", "");
+//                log(substr);
+//            }
+
+//            for (int i = 0; i < table.size(); i++) {
+////                if (index.contains(i)) {
+//                for (int j = 0; j < 4; j++) {
+//                    substr = table.get(i).getElementsByTag("td").get(j).html().replace("%", "");
+//                    if (substr.indexOf('<') == -1) {
+//                        log(substr);
+//                    } else {
+//                        if (substr.charAt(0) == '<') {
+//                            log(substr.substring(substr.indexOf('>') + 3, substr.indexOf("<", substr.indexOf('>')) - 1));
+//
+//                        } else {
+//                            log(substr.substring(0, substr.indexOf('<')));
+//                        }
+//                    }
+//                }
+//            }
+//                    str[ind] = el.get(i).html().replace("%", "");
+//                    ind++;
+//0,1,2,3,4,5,6,7,8,10,11,12,13,15,22,24,25
+//                }
+//            substr = "aa" + " - " + table.get(1).getElementsByTag("td").get(3).html().replace("%", "");
+            //for (int i = 0; i < 10; i++) {
+            //  System.out.println(i + "-" + substr.charAt(i));
+            // }
+            //log("Ultimos 12 meses - " + sub.get(3).html().replace("R$ ", ""));
         } catch (IOException e) {
             e.printStackTrace();
         }

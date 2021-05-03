@@ -13,7 +13,8 @@ import javafx.scene.control.Label;
  * @author User
  */
 public class FundoController {
-     @FXML
+
+    @FXML
     private Label lblValorizacao;
 
     @FXML
@@ -161,56 +162,58 @@ public class FundoController {
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
-    
+
     public void initLabel() {
-        lblValorAtual.setText("1");
-        lblMinSemanas.setText("1");
-        lblValorizacao.setText("1");
-        lblMaxSemanas.setText("1");
-        lblDivYield.setText("1");
-        lblDivUltimos.setText("1");
-        lblDataPag.setText("1");
-        lblDataBase.setText("1");
-        lblCotBase.setText("1");
-        lblUltDiv.setText("1");
-        lblRendimento.setText("1");
-        lblCnpj.setText("1");
-        lblDuracao.setText("1");
-        lblInicioFundo.setText("1");
-        lblCotistas.setText("1");
-       lblProxDiv.setText("1");
-        lblMediaDiv.setText("1");
-        lblDvCagr.setText("1");
-        lblCaixa.setText("1");
-        lblVpC.setText("1");
-        lblPVP.setText("1");
-        lblTaxaAdm.setText("1");
-        lblLiqMedia.setText("1");
-       lblSegmento.setText("1");
-        lblTipo.setText("1");
-        lblDataCom.setText("1");
-        lblPagamento.setText("1");
-        lblValor.setText("1");
-        lblTipo2.setText("1");
-        lblDataCom2.setText("1");
-        lblPagamento2.setText("1");
-        lblValor2.setText("1");
-        lblTipo3.setText("1");
-        lblDataCom3.setText("1");
-        lblPagamento3.setText("1");
-        lblValor3.setText("1");
-        lblTipo4.setText("1");
-        lblDataCom4.setText("1");
-        lblPagamento4.setText("1");
-        lblValor4.setText("1");
-        lblTipo5.setText("1");
-        lblDataCom5.setText("1");
-        lblPagamento5.setText("1");
-        lblValor5.setText("1");
-        lblTipo6.setText("1");
-        lblDataCom6.setText("1");
-        lblPagamento6.setText("1");
-        lblValor6.setText("1");
+        FiiGrabber html = new FiiGrabber();
+        String[] values = html.grabFund("xpcm11");
+        lblValorAtual.setText(values[0]);
+        lblMinSemanas.setText(values[0]);
+        lblValorizacao.setText(values[0]);
+        lblMaxSemanas.setText(values[0]);
+        lblDivYield.setText(values[0]);
+        lblDivUltimos.setText(values[0]);
+        lblDataPag.setText(values[0]);
+        lblDataBase.setText(values[0]);
+        lblCotBase.setText(values[0]);
+        lblUltDiv.setText(values[0]);
+        lblRendimento.setText(values[0]);
+        lblCnpj.setText(values[0]);
+        lblDuracao.setText(values[0]);
+        lblInicioFundo.setText(values[0]);
+        lblCotistas.setText(values[0]);
+        lblProxDiv.setText(values[0]);
+        lblMediaDiv.setText(values[0]);
+        lblDvCagr.setText(values[0]);
+        lblCaixa.setText(values[0]);
+        lblVpC.setText(values[0]);
+        lblPVP.setText(values[0]);
+        lblTaxaAdm.setText(values[0]);
+        lblLiqMedia.setText(values[0]);
+        lblSegmento.setText(values[0]);
+        lblTipo.setText(values[0]);
+        lblDataCom.setText(values[0]);
+        lblPagamento.setText(values[0]);
+        lblValor.setText(values[0]);
+        lblTipo2.setText(values[0]);
+        lblDataCom2.setText(values[0]);
+        lblPagamento2.setText(values[0]);
+        lblValor2.setText(values[0]);
+        lblTipo3.setText(values[0]);
+        lblDataCom3.setText(values[0]);
+        lblPagamento3.setText(values[0]);
+        lblValor3.setText(values[0]);
+        lblTipo4.setText(values[0]);
+        lblDataCom4.setText(values[0]);
+        lblPagamento4.setText(values[0]);
+        lblValor4.setText(values[0]);
+        lblTipo5.setText(values[0]);
+        lblDataCom5.setText(values[0]);
+        lblPagamento5.setText(values[0]);
+        lblValor5.setText(values[0]);
+        lblTipo6.setText(values[0]);
+        lblDataCom6.setText(values[0]);
+        lblPagamento6.setText(values[0]);
+        lblValor6.setText(values[0]);
 
     }
 }
