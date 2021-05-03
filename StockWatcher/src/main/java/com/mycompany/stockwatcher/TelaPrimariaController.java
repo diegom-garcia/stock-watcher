@@ -53,7 +53,7 @@ public class TelaPrimariaController {
             FavoritosController telaP = new FavoritosController();
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
-            scene.getStylesheets().add("/com.mycompany.stockwatcher.css/Favoritoscss.css");
+            scene.getStylesheets().add("/com.mycompany.stockwatcher.css/Style.css");
             stage.setScene(scene);;
 
             telaP.setIdUser(id);
