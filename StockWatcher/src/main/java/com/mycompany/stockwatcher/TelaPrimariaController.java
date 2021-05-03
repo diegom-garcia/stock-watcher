@@ -52,7 +52,9 @@ public class TelaPrimariaController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFavoritos.fxml"));
             FavoritosController telaP = new FavoritosController();
             loader.setController(telaP);
-            stage.setScene(new Scene(loader.load(), 1110, 700));
+            Scene scene = new Scene(loader.load(), 1110, 700);
+            scene.getStylesheets().add("/com.mycompany.stockwatcher.css/Style.css");
+            stage.setScene(scene);;
 
             telaP.setIdUser(id);
             telaP.initTable();
