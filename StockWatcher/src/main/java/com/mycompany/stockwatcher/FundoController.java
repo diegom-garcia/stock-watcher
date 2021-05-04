@@ -163,9 +163,9 @@ public class FundoController {
         this.idUser = idUser;
     }
 
-    public void initLabel() {
+    public void initLabel(String fundo) {
         FiiGrabber html = new FiiGrabber();
-        String[] values = html.grabFund("xpcm11");
+        String[] values = html.grabFund(fundo);
         lblValorAtual.setText(values[0]);
         lblMinSemanas.setText(values[1]);
         lblValorizacao.setText(values[4]);

@@ -163,9 +163,9 @@ public class AcaoController {
         this.idUser = idUser;
     }
     
-    public void initLabel() {
+    public void initLabel(String stock) {
         StockGrabber html = new StockGrabber();
-        String[] values = html.grabStock("bbse3");
+        String[] values = html.grabStock(stock);
         lblValorAtual.setText("R$"+values[0]);
         lblMinSemanas.setText("R$"+values[1]);
         lblValorizacao.setText(values[4]+"%");
