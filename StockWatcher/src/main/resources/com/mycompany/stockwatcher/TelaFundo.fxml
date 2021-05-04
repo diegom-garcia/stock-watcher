@@ -61,7 +61,6 @@
       <Label fx:id="lblTaxaAdm" layoutX="396.0" layoutY="343.0" text="Label" />
       <Label fx:id="lblLiqMedia" layoutX="512.0" layoutY="343.0" text="Label" />
       <Label fx:id="lblSegmento" layoutX="627.0" layoutY="343.0" text="Label" />
-      <Button fx:id="btnFundos" layoutX="254.0" layoutY="14.0" mnemonicParsing="false" onAction="#initLabel" prefHeight="32.0" prefWidth="193.0" text="Button" />
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Estrela%20vazia.png" />
