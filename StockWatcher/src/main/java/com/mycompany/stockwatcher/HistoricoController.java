@@ -1,11 +1,22 @@
 package com.mycompany.stockwatcher;
 
+import com.mycompany.stockwatcher.modelo.Modelo;
+import com.mycompany.stockwatcher.modelo.ModeloDAO;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class HistoricoController {
@@ -21,10 +32,51 @@ public class HistoricoController {
 
     @FXML
     private Button btnCarteira;
+
+    @FXML
+    private TableView<Modelo> tabelaHistoricoAcoes;
+
+    @FXML
+    private TableView<Modelo> tabelaHistoricoFII;
+
+    @FXML
+    private TableColumn<Modelo, String> colNomeAcaoHistorico;
+
+    @FXML
+    private TableColumn<Modelo, String> colNomeFIIHistorico;
+
+    @FXML
+    private Button btnDeletarHistorico;
+
+    private Connection connection;
+    private Statement statement;
     String idUser;
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    public void initTable() {
+        colNomeAcaoHistorico.setCellValueFactory(new PropertyValueFactory("nome_ativo"));
+        colNomeFIIHistorico.setCellValueFactory(new PropertyValueFactory("nome_ativo"));
+        tabelaHistoricoAcoes.setEditable(false);
+        tabelaHistoricoFII.setEditable(false);
+        colNomeAcaoHistorico.setEditable(false);
+        colNomeFIIHistorico.setEditable(false);
+        tabelaHistoricoAcoes.setItems(atualizaTabelaAcaoHistorico());
+        tabelaHistoricoFII.setItems(atualizaTabelaFIIHistorico());
+    }
+
+    public ObservableList<Modelo> atualizaTabelaAcaoHistorico() {
+        System.out.println("favoritos controler  " + idUser);
+        ModeloDAO dao = new ModeloDAO(idUser);
+        return FXCollections.observableArrayList(dao.getListHistoricoAcao());
+    }
+
+    public ObservableList<Modelo> atualizaTabelaFIIHistorico() {
+        System.out.println("favoritos controler  " + idUser);
+        ModeloDAO dao = new ModeloDAO(idUser);
+        return FXCollections.observableArrayList(dao.getListHistoricoFII());
     }
 
     void trocaTelaPesquisar(String id) {
@@ -123,6 +175,17 @@ public class HistoricoController {
     @FXML
     void acaoSobre(ActionEvent event) {
         trocaTelaSobre(idUser);
+    }
+
+    @FXML
+    void acaoDeletarHistorico(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("TODOS OS ITENS FORAM REMOVIDOS DO HISTÓRICO!");
+        alert.show();
+        ModeloDAO m = new ModeloDAO(idUser);
+        m.deleteHistorico();
+        initTable();
+
     }
 
 }

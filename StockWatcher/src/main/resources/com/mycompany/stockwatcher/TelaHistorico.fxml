@@ -7,17 +7,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="706.0" fitWidth="1110.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image/Historico.png" />
+            <Image url="@image/Historico%202.png" />
          </image>
       </ImageView>
       <Button fx:id="btnPesquisar" layoutX="2.0" layoutY="193.0" mnemonicParsing="false" onAction="#acaoPesquisar" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
       <Button fx:id="btnFavoritos" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
       <Button fx:id="btnCarteira" layoutX="2.0" layoutY="434.0" mnemonicParsing="false" onAction="#acaoCarteira" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
       <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="67.0" prefWidth="292.0" text="Button" />
+      <TableView fx:id="tabelaHistoricoAcoes" layoutX="318.0" layoutY="240.0" prefHeight="449.0" prefWidth="367.0">
+        <columns>
+          <TableColumn fx:id="colNomeAcaoHistorico" prefWidth="366.0" text="Nome do ativo" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tabelaHistoricoFII" layoutX="717.0" layoutY="240.0" prefHeight="449.0" prefWidth="367.0">
+         <columns>
+            <TableColumn fx:id="colNomeFIIHistorico" prefWidth="366.0" text="Nome do ativo" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnDeletarHistorico" layoutX="502.0" layoutY="132.0" mnemonicParsing="false" onAction="#acaoDeletarHistorico" opacity="0.0" prefHeight="42.0" prefWidth="367.0" text="Button" />
    </children>
 </AnchorPane>

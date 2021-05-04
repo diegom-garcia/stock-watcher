@@ -16,14 +16,14 @@
       </ImageView>
       <TableView fx:id="tabelaAcoes" layoutX="307.0" layoutY="250.0" prefHeight="444.0" prefWidth="383.0">
         <columns>
-          <TableColumn prefWidth="75.0" />
+          <TableColumn minWidth="0.0" prefWidth="0.0" />
           <TableColumn fx:id="colAtivoAcoes" prefWidth="75.0" text="Nome Ativo" />
         </columns>
       </TableView>
       <TableView fx:id="tabelaFundos" layoutX="703.0" layoutY="250.0" prefHeight="444.0" prefWidth="393.0">
          <columns>
-            <TableColumn prefWidth="75.0" />
-            <TableColumn fx:id="colAtivoFundos" prefWidth="75.0" text="Nome Ativo" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" />
+            <TableColumn fx:id="colAtivoFundos" prefWidth="88.0" text="Nome Ativo" />
          </columns>
       </TableView>
       <Button fx:id="btnPesquisar" layoutX="3.0" layoutY="193.0" mnemonicParsing="false" onAction="#acaoPesquisar" opacity="0.0" prefHeight="65.0" prefWidth="290.0" text="Button" />
