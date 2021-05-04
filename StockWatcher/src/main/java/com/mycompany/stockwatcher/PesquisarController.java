@@ -123,6 +123,7 @@ public class PesquisarController {
                 System.out.println("entrei no primeiro if");
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
                 if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
+                    //fazer aqui a insercao do historico pro fii
                     System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFundo.fxml"));
@@ -155,7 +156,7 @@ public class PesquisarController {
                 System.out.println("entrei no primeiro if");
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
                 if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
-
+                    //fazer aqui a insercao do historico acao
                     System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));

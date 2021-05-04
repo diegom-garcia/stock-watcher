@@ -37,7 +37,7 @@ public class ModeloDAO {
 
     public boolean add(Modelo m) {
         try {
-            String sql = "INSERT INTO favorito(nome_ativo,tipo_ativo,id_usuario,id_favorito) values (?,?,?)";
+            String sql = "INSERT INTO favorito(nome_ativo,tipo_ativo,id_usuario) values (?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, m.getNome_ativo());
             stmt.setString(2, m.getTipo_ativo());
@@ -156,6 +156,18 @@ public class ModeloDAO {
         }
     }
     
+    public boolean deleteFav(String nome) {
+        String sql = "delete from favorito where id_usuario = ? and nome_ativo = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, idUsuario);
+            stmt.setString(2, nome);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
     }
+    
 
-
+}
