@@ -5,14 +5,21 @@
  */
 package com.mycompany.stockwatcher;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author User
  */
 public class AcaoController {
+
+    private boolean fav;
+    @FXML
+    private ImageView imgFavoritado;
 
     @FXML
     private Label lblSegAtuacao;
@@ -156,40 +163,56 @@ public class AcaoController {
     private Label lblTipo;
     @FXML
     private Label lblTipo1;
-    
+    @FXML
+    private Button btnFavorito;
     String idUser;
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
-    
+
+    void acaoFavoritado(ActionEvent event) {
+        fav = !fav;
+        imgFavoritado.setVisible(fav);
+        if (fav) {
+            //insert
+        } else {
+            //delete
+        }
+    }
+
+    private void initFav() {
+        fav = false;
+        // fav = select
+    }
+
     public void initLabel(String stock) {
         StockGrabber html = new StockGrabber();
         String[] values = html.grabStock(stock);
-        lblValorAtual.setText("R$"+values[0]);
-        lblMinSemanas.setText("R$"+values[1]);
-        lblValorizacao.setText(values[4]+"%");
-        lblMaxSemanas.setText("R$"+values[2]);
-        lblDivYield.setText(values[3]+"%");
+        lblValorAtual.setText("R$" + values[0]);
+        lblMinSemanas.setText("R$" + values[1]);
+        lblValorizacao.setText(values[4] + "%");
+        lblMaxSemanas.setText("R$" + values[2]);
+        lblDivYield.setText(values[3] + "%");
         lblTipo.setText(values[5]);
-        lblTagAlong.setText(values[6]+"%");
-        lblLiqDiaria.setText("R$"+values[7]);
-        lblDivUltimos.setText("R$"+values[24]);
-        lblMBruta.setText(values[13]+"%");
-        lblMLiquida.setText(values[14]+"%");
+        lblTagAlong.setText(values[6] + "%");
+        lblLiqDiaria.setText("R$" + values[7]);
+        lblDivUltimos.setText("R$" + values[24]);
+        lblMBruta.setText(values[13] + "%");
+        lblMLiquida.setText(values[14] + "%");
         lblPL.setText(values[8]);
         lblPVP.setText(values[9]);
         lblVPA.setText(values[10]);
         lblDivPL.setText(values[11]);
-        lblROIC.setText(values[17]+"%");
-        lblROA.setText(values[16]+"%");
-        lblROE.setText(values[15]+"%");
-        lblPatLiquido.setText("R$"+values[18]);
-        lblDividaB.setText("R$"+values[19]);
-        lblDividaL.setText("R$"+values[20]);
+        lblROIC.setText(values[17] + "%");
+        lblROA.setText(values[16] + "%");
+        lblROE.setText(values[15] + "%");
+        lblPatLiquido.setText("R$" + values[18]);
+        lblDividaB.setText("R$" + values[19]);
+        lblDividaL.setText("R$" + values[20]);
         lblSegAtuacao.setText(values[23]);
-        lblValorMercado.setText("R$"+values[21]);
-        lblFreeFloat.setText(values[22]+"%");
+        lblValorMercado.setText("R$" + values[21]);
+        lblFreeFloat.setText(values[22] + "%");
         lblTipo1.setText(values[25]);
         lblDataCom.setText(values[26]);
         lblPagamento.setText(values[27]);
@@ -214,7 +237,7 @@ public class AcaoController {
         lblDataCom6.setText(values[46]);
         lblPagamento6.setText(values[47]);
         lblValor6.setText(values[48]);
-
+        initFav();
     }
 
 }

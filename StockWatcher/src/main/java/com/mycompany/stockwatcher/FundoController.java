@@ -5,8 +5,10 @@
  */
 package com.mycompany.stockwatcher;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -157,10 +159,28 @@ public class FundoController {
 
     @FXML
     private Label lblTipo;
+    @FXML
+    private ImageView imgFavoritado;
     String idUser;
+    private boolean fav;
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    void acaoFavoritado(ActionEvent event) {
+        fav = !fav;
+        imgFavoritado.setVisible(fav);
+        if (fav) {
+            //insert
+        } else {
+            //delete
+        }
+    }
+
+    private void initFav() {
+        fav = false;
+        // fav = select
     }
 
     public void initLabel(String fundo) {
@@ -214,6 +234,6 @@ public class FundoController {
         lblDataCom6.setText(values[50]);
         lblPagamento6.setText(values[51]);
         lblValor6.setText(values[52]);
-
+        initFav();
     }
 }
