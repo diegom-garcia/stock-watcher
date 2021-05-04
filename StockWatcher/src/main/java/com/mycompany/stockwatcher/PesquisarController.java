@@ -40,8 +40,8 @@ public class PesquisarController {
     }
 
     void trocaTelaHistorico(String id) {
-        Stage stage = new Stage();
         try {
+            Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
             HistoricoController telaP = new HistoricoController();
             loader.setController(telaP);
@@ -81,7 +81,7 @@ public class PesquisarController {
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
             scene.getStylesheets().add("Style.css");
-            stage.setScene(scene);;
+            stage.setScene(scene);
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
@@ -100,8 +100,7 @@ public class PesquisarController {
             SobreController telaP = new SobreController();
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
-            stage.setScene(scene);;
-
+            stage.setScene(scene);
             telaP.setIdUser(id);
             //telaP.initTable();
             stage.show();
@@ -118,8 +117,16 @@ public class PesquisarController {
         try {
             if (txtPesquisa.getText().equals("")) {
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
-                if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest")) {
-                    // Coisas são feitas aqui :slight_smile:
+                if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFundo.fxml"));
+                    FundoController telaP = new FundoController();
+                    loader.setController(telaP);
+                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    stage.setScene(scene);
+                    telaP.initLabel(txtPesquisa.getText());
+                    telaP.setIdUser(idUser);
+                    stage.show();
                 }
             }
         } catch (IOException e) {
@@ -133,8 +140,16 @@ public class PesquisarController {
         try {
             if (txtPesquisa.getText().equals("")) {
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
-                if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest")) {
-                    // Outras coisas são feitas aqui :slight_smile:
+                if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));
+                    AcaoController telaP = new AcaoController();
+                    loader.setController(telaP);
+                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    stage.setScene(scene);
+                    telaP.initLabel(txtPesquisa.getText());
+                    telaP.setIdUser(idUser);
+                    stage.show();
                 }
             }
 
@@ -144,9 +159,9 @@ public class PesquisarController {
 
     }
 
-     @FXML
+    @FXML
     void acaoHistorico(ActionEvent event) {
-         trocaTelaHistorico(idUser);
+        trocaTelaHistorico(idUser);
     }
 
     @FXML
