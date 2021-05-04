@@ -124,8 +124,8 @@ public class PesquisarController {
                     loader.setController(telaP);
                     Scene scene = new Scene(loader.load(), 1110, 700);
                     stage.setScene(scene);
-                    telaP.initLabel(txtPesquisa.getText());
                     telaP.setIdUser(idUser);
+                    telaP.initLabel(txtPesquisa.getText());
                     stage.show();
                 }
             }
@@ -147,8 +147,8 @@ public class PesquisarController {
                     loader.setController(telaP);
                     Scene scene = new Scene(loader.load(), 1110, 700);
                     stage.setScene(scene);
-                    telaP.initLabel(txtPesquisa.getText());
                     telaP.setIdUser(idUser);
+                    telaP.initLabel(txtPesquisa.getText());
                     stage.show();
                 }
             }

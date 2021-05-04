@@ -1,16 +1,28 @@
-
 package com.mycompany.stockwatcher;
 
+//import com.mysql.cj.result.Row;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Iterator;
+import java.util.List;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+//import javafx.scene.control.Cell;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class CarteiraController {
-    
+
     @FXML
     private Button btnFavoritos;
 
@@ -22,7 +34,7 @@ public class CarteiraController {
 
     @FXML
     private Button btnHistorico;
-    
+
     String idUser;
 
     @FXML
@@ -33,7 +45,7 @@ public class CarteiraController {
     @FXML
     void acaoFavoritos(ActionEvent event) {
         trocaTelaFavorito(idUser);
-    } 
+    }
 
     @FXML
     void acaoHistorico(ActionEvent event) {
@@ -44,10 +56,59 @@ public class CarteiraController {
     void acaoSobre(ActionEvent event) {
         trocaTelaSobre(idUser);
     }
-    
-    
+
     public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    public File getFile() {
+        FileChooser filechooser = new FileChooser();
+        filechooser.setTitle("Abrir Excel");
+        File file = filechooser.showOpenDialog(btnSobre.getScene().getWindow());
+        return file;
+    }
+
+    public List<Carteira> getCarteiras(File file) {
+        List<Carteira> carteiras = null;
+        Carteira carteira = new Carteira();
+        //obtaining input bytes from a file  
+        try {
+            FileInputStream fis = new FileInputStream(file);   //obtaining bytes from the file  
+//creating Workbook instance that refers to .xlsx file  
+            XSSFWorkbook wb = new XSSFWorkbook(fis);
+            XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object  
+            Iterator<Row> itr = sheet.iterator();    //iterating over excel file  
+            while (itr.hasNext()) {
+                Row row = itr.next();
+                Iterator<Cell> cellIterator = row.cellIterator();   //iterating over each column  
+                carteira = new Carteira();
+                Cell cell = cellIterator.next();
+                carteira.setData((Date) cell.getDateCellValue());
+                cell = cellIterator.next();
+                carteira.setTipo(cell.getStringCellValue());
+                cell = cellIterator.next();
+                carteira.setNome(cell.getStringCellValue());
+                cell = cellIterator.next();
+                carteira.setPreco(cell.getNumericCellValue());
+                cell = cellIterator.next();
+                carteira.setQtd(cell.getNumericCellValue());
+                cell = cellIterator.next();
+                carteira.setOperacao(cell.getStringCellValue());
+
+                carteiras.add(carteira);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return carteiras;
+    }
+
+    public void popular_tabela() {
+        File file = getFile();
+        List<Carteira> carteiras =  getCarteiras(file);
+        //tabelaAcoes.setItems(FXCollections.observableArrayList(carteiras));
     }
 
     void trocaTelaPesquisar(String id) {
@@ -114,7 +175,7 @@ public class CarteiraController {
             scene.getStylesheets().add("Style.css");
             stage.setScene(scene);;
             telaP.setIdUser(id);
-           // telaP.initTable();
+            // telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
