@@ -20,9 +20,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -63,6 +65,7 @@ public class FavoritosController {
     private Connection connection;
     private Statement statement;
     String idUser;
+    
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
@@ -71,17 +74,20 @@ public class FavoritosController {
 
     private void popularTabela() {
         tabelaAcoes.setEditable(true);
-
+        tabelaFundos.setEditable(true);
+        
     }
 
-
+  
     
    public void initTable(){
        colAtivoAcoes.setCellValueFactory(new PropertyValueFactory("nome_ativo"));
        colAtivoFundos.setCellValueFactory(new PropertyValueFactory("nome_ativo"));
        tabelaAcoes.setItems(atualizaTabelaAcoes());
        tabelaFundos.setItems(atualizaTabelaFundos());
+       
    }
+   
    
    public ObservableList <Modelo> atualizaTabelaAcoes(){
        System.out.println("favoritos controler  " + idUser);
@@ -93,17 +99,6 @@ public class FavoritosController {
        return FXCollections.observableArrayList(dao.getListFundo());
    }
    
-    private void abrirConexao() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
-            statement = connection.createStatement();
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("oie");
-
-        }
-    }
     @FXML
     void acaoPesquisar(ActionEvent event) {
         trocaTelaPesquisar(idUser);
@@ -148,6 +143,7 @@ public class FavoritosController {
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
+            telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
@@ -187,7 +183,7 @@ public class FavoritosController {
             scene.getStylesheets().add("Style.css");
             stage.setScene(scene);;
             telaP.setIdUser(id);
-           // telaP.initTable();
+            //telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();

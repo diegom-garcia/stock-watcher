@@ -47,6 +47,7 @@ public class PesquisarController {
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
+            telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
@@ -116,6 +117,7 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarFII(ActionEvent event) {
         try {
+            System.out.println("to funcionando FII");
             if (txtPesquisa.getText().equals("")) {
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
                 if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest")) {
@@ -131,6 +133,7 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarAcao(ActionEvent event) {
         try {
+            System.out.println("to funcionando acao");
             if (txtPesquisa.getText().equals("")) {
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
                 if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest")) {
