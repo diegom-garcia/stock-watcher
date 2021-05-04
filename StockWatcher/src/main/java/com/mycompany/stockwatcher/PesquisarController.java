@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -47,6 +48,7 @@ public class PesquisarController {
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
+            telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
@@ -115,7 +117,9 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarFII(ActionEvent event) {
         try {
-            if (txtPesquisa.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            System.out.println("to funcionando FII");
+            if (txtPesquisa.getText().equals("") == false) {
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
                 if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
                     Stage stage = new Stage();
@@ -127,7 +131,13 @@ public class PesquisarController {
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());
                     stage.show();
+                }else{
+                     alert.setContentText("Não encontramos o que você está procurando");
+                    alert.show();
                 }
+            } else {
+                alert.setContentText("Preencha corretamente");
+                alert.show();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -138,9 +148,13 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarAcao(ActionEvent event) {
         try {
-            if (txtPesquisa.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            if (txtPesquisa.getText().equals("") == false) {
+                System.out.println("entrei no primeiro if");
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
                 if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
+
+                    System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));
                     AcaoController telaP = new AcaoController();
@@ -150,7 +164,14 @@ public class PesquisarController {
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());
                     stage.show();
+
+                } else {
+                    alert.setContentText("Não encontramos o que você está procurando");
+                    alert.show();
                 }
+            } else {
+                alert.setContentText("Preencha corretamente");
+                alert.show();
             }
 
         } catch (IOException e) {

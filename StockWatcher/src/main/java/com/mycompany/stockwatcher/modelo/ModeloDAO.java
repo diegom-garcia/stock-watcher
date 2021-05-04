@@ -19,15 +19,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author User
  */
 public class ModeloDAO {
-
-   
-   
 
     private Connection connection;
     private Statement statement;
@@ -102,4 +98,64 @@ public class ModeloDAO {
         return modelo;
     }
 
-}
+    public List<Modelo> getListHistoricoAcao() {
+        List<Modelo> modelo = new ArrayList<>();
+        String sql = "select nome_ativo from historico where tipo_ativo = 'A' and id_usuario = " + idUsuario;
+        System.out.println(idUsuario + "getlisthistorico");
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet result = stmt.executeQuery();
+            while (result.next()) {
+                Modelo m = new Modelo();
+                m.setNome_ativo(result.getString("nome_ativo"));
+                modelo.add(m);
+
+            }
+            stmt.close();
+            result.close();
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro no modeloDAO na funcao getList");
+            return null;
+        }
+        return modelo;
+    }
+
+    public List<Modelo> getListHistoricoFII() {
+        List<Modelo> modelo = new ArrayList<>();
+        String sql = "select nome_ativo from historico where tipo_ativo = 'F' and id_usuario = " + idUsuario;
+        System.out.println(idUsuario + "getlisthistorico");
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet result = stmt.executeQuery();
+            while (result.next()) {
+                Modelo m = new Modelo();
+                m.setNome_ativo(result.getString("nome_ativo"));
+                modelo.add(m);
+
+            }
+            stmt.close();
+            result.close();
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro no modeloDAO na funcao getList");
+            return null;
+        }
+        return modelo;
+    }
+
+    public boolean deleteHistorico() {
+        String sql = "delete from historico where id_usuario = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, idUsuario);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
+    }
+
+

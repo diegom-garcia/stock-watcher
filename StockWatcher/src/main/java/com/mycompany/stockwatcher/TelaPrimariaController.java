@@ -49,13 +49,13 @@ public class TelaPrimariaController {
     void trocaTelaFavorito(String id) {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFavoritos.fxml"));
             FavoritosController telaP = new FavoritosController();
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
             stage.setScene(scene);
             telaP.setIdUser(id);
-            // telaP.initTable();
+            telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
@@ -74,7 +74,7 @@ public class TelaPrimariaController {
             Scene scene = new Scene(loader.load(), 1110, 700);
             stage.setScene(scene);
             telaP.setIdUser(id);
-            //telaP.initTable();
+            telaP.initTable();
             stage.show();
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();

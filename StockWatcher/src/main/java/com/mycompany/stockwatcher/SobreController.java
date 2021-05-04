@@ -54,7 +54,7 @@ public class SobreController {
             HistoricoController telaP = new HistoricoController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
-
+            telaP.initTable();
             telaP.setIdUser(id);
             stage.show();
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
