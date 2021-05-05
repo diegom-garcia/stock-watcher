@@ -107,7 +107,7 @@ public class CarteiraController {
 
     public void popular_tabela() {
         File file = getFile();
-        List<Carteira> carteiras =  getCarteiras(file);
+        //List<Carteira> carteiras =  getCarteiras(file);
         //tabelaAcoes.setItems(FXCollections.observableArrayList(carteiras));
     }
 

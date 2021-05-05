@@ -43,7 +43,7 @@ public class PesquisarController {
     void trocaTelaHistorico(String id) {
         try {
             Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaHistorico.fxml"));
             HistoricoController telaP = new HistoricoController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
@@ -61,7 +61,7 @@ public class PesquisarController {
     void trocaTelaCarteira(String id) {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCarteira.fxml"));
             CarteiraController telaP = new CarteiraController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
@@ -120,8 +120,11 @@ public class PesquisarController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             System.out.println("to funcionando FII");
             if (txtPesquisa.getText().equals("") == false) {
+                System.out.println("entrei no primeiro if");
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
                 if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
+                    //fazer aqui a insercao do historico pro fii
+                    System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFundo.fxml"));
                     FundoController telaP = new FundoController();
@@ -153,7 +156,7 @@ public class PesquisarController {
                 System.out.println("entrei no primeiro if");
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
                 if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
-
+                    //fazer aqui a insercao do historico acao
                     System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));

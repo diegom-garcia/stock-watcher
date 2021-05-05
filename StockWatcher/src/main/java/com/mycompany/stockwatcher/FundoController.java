@@ -5,8 +5,13 @@
  */
 package com.mycompany.stockwatcher;
 
+import com.mycompany.stockwatcher.modelo.Modelo;
+import com.mycompany.stockwatcher.modelo.ModeloDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -163,27 +168,29 @@ public class FundoController {
     private ImageView imgFavoritado;
     String idUser;
     private boolean fav;
+    String fundao;
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
-    void acaoFavoritado(ActionEvent event) {
+    public void acaoFavoritado(ActionEvent event) {
         fav = !fav;
         imgFavoritado.setVisible(fav);
         if (fav) {
-            //insert
+            addFav();
         } else {
-            //delete
+            deletarFav();
         }
     }
 
     private void initFav() {
-        fav = false;
+        fav = testaFav();
         // fav = select
     }
 
     public void initLabel(String fundo) {
+        fundao = fundo;
         FiiGrabber html = new FiiGrabber();
         String[] values = html.grabFund(fundo);
         lblValorAtual.setText(values[0]);
@@ -235,5 +242,49 @@ public class FundoController {
         lblPagamento6.setText(values[51]);
         lblValor6.setText(values[52]);
         initFav();
+    }
+    
+    //select que mostra se tem o favorito ou nao
+    public boolean testaFav() {
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        List<Modelo> lista = modelo.getListFundo();
+        boolean bo = false;
+
+        for (int x = 0; x < lista.size(); x++) {
+            if (lista.get(x).getNome_ativo().equals(fundao)) {
+                bo = true;
+            }
+        }
+        return bo;
+    }
+    
+     public void addFav() {
+
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        Modelo modelao = new Modelo();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        try {
+            modelao.setId_usuario(Integer.parseInt(idUser));
+            modelao.setNome_ativo(fundao);
+            modelao.setTipo_ativo("F");
+            modelo.add(modelao);
+        } catch (Exception ex) {
+            alert.setContentText("Não foi possível adicionar este item a tabela Favorito");
+            alert.show();
+        }
+    }
+
+    public void deletarFav() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        try {
+            modelo.deleteFav(fundao);
+        } catch (Exception ex) {
+            alert.setContentText("Não foi possível remover este item");
+            alert.show();
+
+        }
+
     }
 }
