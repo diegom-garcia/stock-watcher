@@ -59,6 +59,7 @@ public class LoginController {
            //  thisStage.setTitle("Passing Controllers Example - Layout1");
            telaP.setIdUser(id);
            stage.show();
+           stage.setResizable(false);
            Stage stage2 = (Stage) loginButton.getScene().getWindow();
             stage2.close();
            

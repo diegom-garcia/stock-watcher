@@ -1,5 +1,7 @@
 package com.mycompany.stockwatcher;
 
+import com.mycompany.stockwatcher.modelo.Modelo;
+import com.mycompany.stockwatcher.modelo.ModeloDAO;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,6 +52,7 @@ public class PesquisarController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -67,6 +70,7 @@ public class PesquisarController {
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -87,6 +91,7 @@ public class PesquisarController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -106,6 +111,7 @@ public class PesquisarController {
             telaP.setIdUser(id);
             //telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -117,25 +123,32 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarFII(ActionEvent event) {
         try {
+            ModeloDAO modelo = new ModeloDAO(idUser);
+            Modelo modelao = new Modelo();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             System.out.println("to funcionando FII");
             if (txtPesquisa.getText().equals("") == false) {
                 System.out.println("entrei no primeiro if");
                 Document checkFii = Jsoup.connect("https://statusinvest.com.br/fundos-imobiliarios/" + txtPesquisa.getText()).get();
                 if (checkFii.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
-                    //fazer aqui a insercao do historico pro fii
+                    modelao.setId_usuario(Integer.parseInt(idUser));
+                    modelao.setNome_ativo(txtPesquisa.getText());
+                    modelao.setTipo_ativo("F");
+                    modelo.add(modelao);
                     System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFundo.fxml"));
                     FundoController telaP = new FundoController();
                     loader.setController(telaP);
-                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    Scene scene = new Scene(loader.load(), 710, 400);
                     stage.setScene(scene);
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());
                     stage.show();
-                }else{
-                     alert.setContentText("Não encontramos o que você está procurando");
+                    stage.setResizable(false);
+                    System.out.println("to dentro do acao pesquisar fii");
+                } else {
+                    alert.setContentText("Não encontramos o que você está procurando");
                     alert.show();
                 }
             } else {
@@ -151,22 +164,29 @@ public class PesquisarController {
     @FXML
     void acaoPesquisarAcao(ActionEvent event) {
         try {
+            ModeloDAO modelo = new ModeloDAO(idUser);
+            Modelo modelao = new Modelo();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             if (txtPesquisa.getText().equals("") == false) {
                 System.out.println("entrei no primeiro if");
                 Document checkStock = Jsoup.connect("https://statusinvest.com.br/acoes/" + txtPesquisa.getText()).get();
                 if (checkStock.title().equals("OPS. . .Não encontramos o que você está procurando - Status Invest") == false) {
-                    //fazer aqui a insercao do historico acao
+
+                    modelao.setId_usuario(Integer.parseInt(idUser));
+                    modelao.setNome_ativo(txtPesquisa.getText());
+                    modelao.setTipo_ativo("A");
+                    modelo.add(modelao);
                     System.out.println("entrei no segundo if");
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));
                     AcaoController telaP = new AcaoController();
                     loader.setController(telaP);
-                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    Scene scene = new Scene(loader.load(), 710, 400);
                     stage.setScene(scene);
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());
                     stage.show();
+                    stage.setResizable(false);
 
                 } else {
                     alert.setContentText("Não encontramos o que você está procurando");

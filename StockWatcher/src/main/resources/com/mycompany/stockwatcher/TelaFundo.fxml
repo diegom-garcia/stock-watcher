@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -33,7 +34,7 @@
       <Label fx:id="lblInicioFundo" layoutX="269.0" layoutY="207.0" text="Label" />
       <Label fx:id="lblCotistas" layoutX="38.0" layoutY="276.0" text="Label" />
       <Label fx:id="lblProxDiv" layoutX="123.0" layoutY="276.0" text="Label" />
-      <Label fx:id="lblMediaDiv" layoutX="207.0" layoutY="276.0" text="Label" />
+      <Label fx:id="lblMediaDiv" layoutX="187.0" layoutY="276.0" text="Label" />
       <Label fx:id="lblDvCagr" layoutX="293.0" layoutY="276.0" text="Label" />
       <Label fx:id="lblCaixa" layoutX="95.0" layoutY="343.0" text="Label" />
       <Label fx:id="lblVpC" layoutX="193.0" layoutY="343.0" text="Label" />
@@ -41,7 +42,10 @@
       <Label fx:id="lblTipo" layoutX="382.0" layoutY="199.0" text="Label" />
       <Label fx:id="lblDataCom" layoutX="465.0" layoutY="199.0" text="Label" />
       <Label fx:id="lblPagamento" layoutX="563.0" layoutY="199.0" text="Label" />
-      <Label fx:id="lblValor" layoutX="641.0" layoutY="199.0" text="Label" />
+      <Label fx:id="lblValor" layoutX="632.0" layoutY="200.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       <Label fx:id="lblTipo2" layoutX="382.0" layoutY="216.0" text="Label" />
       <Label fx:id="lblTipo3" layoutX="382.0" layoutY="233.0" text="Label" />
       <Label fx:id="lblTipo4" layoutX="382.0" layoutY="259.0" text="Label" />
@@ -57,11 +61,26 @@
       <Label fx:id="lblPagamento4" layoutX="563.0" layoutY="259.0" text="Label" />
       <Label fx:id="lblPagamento5" layoutX="563.0" layoutY="276.0" text="Label" />
       <Label fx:id="lblPagamento6" layoutX="563.0" layoutY="293.0" text="Label" />
-      <Label fx:id="lblValor2" layoutX="641.0" layoutY="216.0" text="Label" />
-      <Label fx:id="lblValor3" layoutX="641.0" layoutY="233.0" text="Label" />
-      <Label fx:id="lblValor4" layoutX="641.0" layoutY="259.0" text="Label" />
-      <Label fx:id="lblValor5" layoutX="641.0" layoutY="276.0" text="Label" />
-      <Label fx:id="lblValor6" layoutX="641.0" layoutY="293.0" text="Label" />
+      <Label fx:id="lblValor2" layoutX="632.0" layoutY="217.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label fx:id="lblValor3" layoutX="632.0" layoutY="243.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label fx:id="lblValor4" layoutX="632.0" layoutY="260.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label fx:id="lblValor5" layoutX="632.0" layoutY="277.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label fx:id="lblValor6" layoutX="632.0" layoutY="294.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       <Label fx:id="lblTaxaAdm" layoutX="396.0" layoutY="343.0" text="Label" />
       <Label fx:id="lblLiqMedia" layoutX="512.0" layoutY="343.0" text="Label" />
       <Label fx:id="lblSegmento" layoutX="627.0" layoutY="343.0" text="Label" />
@@ -70,11 +89,11 @@
             <Image url="@image/Estrela%20vazia.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgFavoritado" fitHeight="70.0" fitWidth="70.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Estrela%20cheia.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnFavorito" layoutX="506.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="45.0" text="btnFavorito" visible="false" />
+      <Button fx:id="btnFavorito" layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#acaoFavoritado" opacity="0.0" prefHeight="32.0" prefWidth="45.0" text="btnFavorito" />
    </children>
 </AnchorPane>

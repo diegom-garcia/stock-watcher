@@ -9,8 +9,18 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class SobreController {
+
     String idUser;
-    
+
+    @FXML
+    private Button btnSelo;
+
+    @FXML
+    private Button btnComentarios;
+
+    @FXML
+    private Button btnMembros;
+
     @FXML
     private Button btnFavoritos;
 
@@ -23,8 +33,6 @@ public class SobreController {
     @FXML
     private Button btnHistorico;
 
-    
-    
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
@@ -39,6 +47,7 @@ public class SobreController {
 
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -57,6 +66,7 @@ public class SobreController {
             telaP.initTable();
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -78,6 +88,7 @@ public class SobreController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -99,6 +110,7 @@ public class SobreController {
             telaP.setIdUser(id);
             //telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -106,6 +118,55 @@ public class SobreController {
             e.printStackTrace();
         }
     }
+    void trocaTelaMembros() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaMembros.fxml"));
+            MembrosController telaP = new MembrosController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 633, 401));
+            stage.show();
+            stage.setResizable(false);
+//            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
+//            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    void trocaTelaComentarios() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaComentarios.fxml"));
+            ComentariosController telaP = new ComentariosController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 800, 505));
+            stage.show();
+            stage.setResizable(false);
+//            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
+//            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    void trocaTelaSelo() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaSelo.fxml"));
+            SeloController telaP = new SeloController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 710, 450));
+            stage.show();
+            stage.setResizable(false);
+//            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
+//            stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     void acaoPesquisar(ActionEvent event) {
         trocaTelaPesquisar(idUser);
@@ -125,5 +186,20 @@ public class SobreController {
     void acaoCarteira(ActionEvent event) {
         trocaTelaCarteira(idUser);
     }
-    
+
+    @FXML
+    void acaoMembros(ActionEvent event) {
+        trocaTelaMembros();
+    }
+
+    @FXML
+    void acaoComentarios(ActionEvent event) {
+        trocaTelaComentarios();
+    }
+
+    @FXML
+    void acaoSelo(ActionEvent event) {
+        trocaTelaSelo();
+    }
+
 }

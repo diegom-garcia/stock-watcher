@@ -34,7 +34,7 @@ public class App extends Application {
         
         //abrirConexao();
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
         stage.show();
         //funcionaPeloAmorDeDeus();
        

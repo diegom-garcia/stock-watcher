@@ -22,7 +22,7 @@ public class FiiGrabber {
     public String[] grabFund(String fundo) {
         ArrayList<Integer> index = new ArrayList<>();
         Collections.addAll(index, 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 15, 22, 24, 25, 28);
-        String[] str = new String[47];
+        String[] str = new String[49];
         Integer ind = 0;
         String substr;
         try {
@@ -49,7 +49,7 @@ public class FiiGrabber {
                 ind++;
 
             }
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 4; i++) {
                 str[ind] = el2.get(0).getElementsByClass("sub-value fs-4 lh-3").get(i).html().replace("%", "");
                 ind++;
 

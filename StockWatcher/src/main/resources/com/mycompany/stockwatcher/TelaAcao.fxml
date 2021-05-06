@@ -41,12 +41,12 @@
       <Label fx:id="lblSegAtuacao" layoutX="168.0" layoutY="318.0" text="Label" />
       <Label fx:id="lblValorMercado" layoutX="140.0" layoutY="369.0" text="Label" />
       <Label fx:id="lblFreeFloat" layoutX="285.0" layoutY="369.0" text="Label" />
-      <Label fx:id="lblTipo1" layoutX="379.0" layoutY="268.0" text="Label" />
-      <Label fx:id="lblTipo2" layoutX="379.0" layoutY="292.0" text="Label" />
-      <Label fx:id="lblTipo3" layoutX="379.0" layoutY="309.0" text="Label" />
-      <Label fx:id="lblTipo4" layoutX="379.0" layoutY="334.0" text="Label" />
-      <Label fx:id="lblTipo5" layoutX="379.0" layoutY="351.0" text="Label" />
-      <Label fx:id="lblTipo6" layoutX="379.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblTipo1" layoutX="363.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblTipo2" layoutX="363.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblTipo3" layoutX="363.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblTipo4" layoutX="363.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblTipo5" layoutX="363.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblTipo6" layoutX="363.0" layoutY="369.0" text="Label" />
       <Label fx:id="lblDataCom" layoutX="456.0" layoutY="268.0" text="Label" />
       <Label fx:id="lblDataCom2" layoutX="456.0" layoutY="292.0" text="Label" />
       <Label fx:id="lblDataCom3" layoutX="456.0" layoutY="309.0" text="Label" />
@@ -59,12 +59,12 @@
       <Label fx:id="lblPagamento4" layoutX="559.0" layoutY="334.0" text="Label" />
       <Label fx:id="lblPagamento5" layoutX="559.0" layoutY="351.0" text="Label" />
       <Label fx:id="lblPagamento6" layoutX="559.0" layoutY="369.0" text="Label" />
-      <Label fx:id="lblValor" layoutX="646.0" layoutY="268.0" text="Label" />
-      <Label fx:id="lblValor2" layoutX="646.0" layoutY="292.0" text="Label" />
-      <Label fx:id="lblValor3" layoutX="646.0" layoutY="309.0" text="Label" />
-      <Label fx:id="lblValor4" layoutX="646.0" layoutY="334.0" text="Label" />
-      <Label fx:id="lblValor5" layoutX="646.0" layoutY="351.0" text="Label" />
-      <Label fx:id="lblValor6" layoutX="646.0" layoutY="369.0" text="Label" />
+      <Label fx:id="lblValor" layoutX="632.0" layoutY="268.0" text="Label" />
+      <Label fx:id="lblValor2" layoutX="632.0" layoutY="292.0" text="Label" />
+      <Label fx:id="lblValor3" layoutX="632.0" layoutY="309.0" text="Label" />
+      <Label fx:id="lblValor4" layoutX="632.0" layoutY="334.0" text="Label" />
+      <Label fx:id="lblValor5" layoutX="632.0" layoutY="351.0" text="Label" />
+      <Label fx:id="lblValor6" layoutX="632.0" layoutY="369.0" text="Label" />
       <ImageView fitHeight="39.0" fitWidth="68.0" layoutX="496.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Estrela%20vazia.png" />
