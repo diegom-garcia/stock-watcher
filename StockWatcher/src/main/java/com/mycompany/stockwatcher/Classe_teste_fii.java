@@ -14,7 +14,7 @@ public class Classe_teste_fii {
     public static void main(String[] args) {
         FiiGrabber aa;
         aa = new FiiGrabber();
-        String[] bb = aa.grabFund("xpcm11");
+        String[] bb = aa.grabFund("mxrf11");
         for (int i = 0; i < bb.length; i++) {
             System.out.println(i + " - " + bb[i]);
         }

@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1115.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,5 +18,8 @@
       <Button fx:id="btnFavoritos" layoutX="3.0" layoutY="271.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="71.0" prefWidth="291.0" text="Button" />
       <Button fx:id="btnHistorico" layoutX="3.0" layoutY="357.0" mnemonicParsing="false" onAction="#acaoHistorico" opacity="0.0" prefHeight="71.0" prefWidth="291.0" text="Button" />
       <Button fx:id="btnCarteira" layoutX="3.0" layoutY="435.0" mnemonicParsing="false" onAction="#acaoCarteira" opacity="0.0" prefHeight="71.0" prefWidth="291.0" text="Button" />
+      <Button fx:id="btnMembros" layoutX="535.0" layoutY="195.0" mnemonicParsing="false" onAction="#acaoMembros" opacity="0.0" prefHeight="61.0" prefWidth="321.0" text="Button" />
+      <Button fx:id="btnComentarios" layoutX="535.0" layoutY="345.0" mnemonicParsing="false" onAction="#acaoComentarios" opacity="0.0" prefHeight="61.0" prefWidth="321.0" text="Button" />
+      <Button fx:id="btnSelo" layoutX="529.0" layoutY="506.0" mnemonicParsing="false" onAction="#acaoSelo" opacity="0.0" prefHeight="61.0" prefWidth="321.0" text="Button" />
    </children>
 </AnchorPane>

@@ -22,7 +22,7 @@ public class FiiGrabber {
     public String[] grabFund(String fundo) {
         ArrayList<Integer> index = new ArrayList<>();
         Collections.addAll(index, 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 15, 22, 24, 25, 28);
-        String[] str = new String[45];
+        String[] str = new String[49];
         Integer ind = 0;
         String substr;
         try {
@@ -41,15 +41,18 @@ public class FiiGrabber {
 
                 }
             }
+            System.out.println(ind);
             str[ind] = sub.get(3).html().replace("R$ ", "");
             ind++;
-            for (int i = 0; i < el2.size(); i++) {
-                str[ind] = el2.get(i).getElementsByClass("value d-inline-block fs-5 fw-900").html().replace("%", "");
+            for (int i = 0; i < el2.get(0).getElementsByClass("value d-inline-block fs-5 fw-900").size(); i++) {
+                str[ind] = el2.get(0).getElementsByClass("value d-inline-block fs-5 fw-900").get(i).html().replace("%", "");
                 ind++;
+
             }
-            for (int i = 0; i < el2.size(); i++) {
-                str[ind] = el2.get(i).getElementsByClass("sub-value fs-4 lh-3").html().replace("%", "");
+            for (int i = 0; i < 4; i++) {
+                str[ind] = el2.get(0).getElementsByClass("sub-value fs-4 lh-3").get(i).html().replace("%", "");
                 ind++;
+
             }
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 4; j++) {
@@ -75,7 +78,6 @@ public class FiiGrabber {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("to dentro do grab");
         return str;
     }
 

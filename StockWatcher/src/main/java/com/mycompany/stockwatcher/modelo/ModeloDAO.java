@@ -37,7 +37,7 @@ public class ModeloDAO {
 
     public boolean add(Modelo m) {
         try {
-            String sql = "INSERT INTO favorito(nome_ativo,tipo_ativo,id_usuario) values (?,?,?)";
+            String sql = "INSERT INTO historico(nome_ativo,tipo_ativo,id_usuario) values (?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, m.getNome_ativo());
             stmt.setString(2, m.getTipo_ativo());
@@ -168,6 +168,7 @@ public class ModeloDAO {
             return false;
         }
     }
+    
     
 
 }

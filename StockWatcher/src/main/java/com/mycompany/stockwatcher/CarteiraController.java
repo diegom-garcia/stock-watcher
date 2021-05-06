@@ -70,6 +70,8 @@ public class CarteiraController {
     @FXML
     private Button btnHistorico;
 
+    @FXML
+    private Button btnDuvida;
     String idUser;
 
     @FXML
@@ -90,6 +92,11 @@ public class CarteiraController {
     @FXML
     void acaoSobre(ActionEvent event) {
         trocaTelaSobre(idUser);
+    }
+
+    @FXML
+    void acaoDuvida(ActionEvent event) {
+        trocaTelaDuvida();
     }
 
     public void setIdUser(String idUser) {
@@ -127,7 +134,7 @@ public class CarteiraController {
                 cell = cellIterator.next();
                 excel.setPreco(cell.getNumericCellValue());
                 cell = cellIterator.next();
-                excel.setQtd((int)cell.getNumericCellValue());
+                excel.setQtd((int) cell.getNumericCellValue());
                 cell = cellIterator.next();
                 excel.setOperacao(cell.getStringCellValue());
 
@@ -147,8 +154,9 @@ public class CarteiraController {
         List<Carteira> dados = pegar_tabela(excel);
         //tabelaAcoes.setItems(FXCollections.observableArrayList(carteiras));
     }
-    private void tabela(List<Carteira> dados){
-        
+
+    private void tabela(List<Carteira> dados) {
+
     }
 
     private List<Carteira> pegar_tabela(List<DadosExcel> excel) {
@@ -224,6 +232,7 @@ public class CarteiraController {
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -232,8 +241,7 @@ public class CarteiraController {
         }
     }
 
-    void trocaTelaHistorico(String id
-    ) {
+    void trocaTelaHistorico(String id) {
         Stage stage = new Stage();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaHistorico.fxml"));
@@ -242,6 +250,7 @@ public class CarteiraController {
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -263,6 +272,7 @@ public class CarteiraController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
 
@@ -284,8 +294,25 @@ public class CarteiraController {
             telaP.setIdUser(id);
             // telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
             stage2.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    void trocaTelaDuvida() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaDuvidas.fxml"));
+            DuvidasController telaP = new DuvidasController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 1110, 700));
+            stage.show();
+            stage.setResizable(false);
+//            Stage stage2 = (Stage) btnFavoritos.getScene().getWindow();
+//            stage2.close();
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -222,39 +222,39 @@ public class FundoController {
         lblTaxaAdm.setText(values[11]);
         lblLiqMedia.setText(values[12]);
         lblSegmento.setText(values[17]);
-        lblTipo.setText(values[29]);
-        lblDataCom.setText(values[30]);
-        lblPagamento.setText(values[31]);
-        lblValor.setText(values[32]);
-        lblTipo2.setText(values[33]);
-        lblDataCom2.setText(values[34]);
-        lblPagamento2.setText(values[35]);
-        lblValor2.setText(values[36]);
-        lblTipo3.setText(values[37]);
+        lblTipo.setText(values[25]);
+        lblDataCom.setText(values[26]);
+        lblPagamento.setText(values[27]);
+        lblValor.setText(values[28]);
+        lblTipo2.setText(values[29]);
+        lblDataCom2.setText(values[30]);
+        lblPagamento2.setText(values[31]);
+        lblValor2.setText(values[32]);
+        lblTipo3.setText(values[33]);
 
-        lblDataCom3.setText(values[38]);
-        lblPagamento3.setText(values[39]);
+        lblDataCom3.setText(values[34]);
+        lblPagamento3.setText(values[35]);
         
-        lblValor3.setText(values[40]);
-        lblTipo4.setText(values[41]);
+        lblValor3.setText(values[36]);
+        lblTipo4.setText(values[37]);
         
-        lblDataCom4.setText(values[42]);
+        lblDataCom4.setText(values[38]);
         
-        lblPagamento4.setText(values[43]);
-        lblValor4.setText(values[44]);
+        lblPagamento4.setText(values[39]);
+        lblValor4.setText(values[40]);
 
-        lblTipo5.setText(values[45]);
-        lblDataCom5.setText(values[46]);
+        lblTipo5.setText(values[41]);
+        lblDataCom5.setText(values[42]);
         
-        lblPagamento5.setText(values[47]);
-        lblValor5.setText(values[48]);
+        lblPagamento5.setText(values[43]);
+        lblValor5.setText(values[44]);
 
-        lblTipo6.setText(values[49]);
-        lblDataCom6.setText(values[50]);
+        lblTipo6.setText(values[45]);
+        lblDataCom6.setText(values[46]);
 
-        lblPagamento6.setText(values[51]);
+        lblPagamento6.setText(values[47]);
 
-        lblValor6.setText(values[52]);
+        lblValor6.setText(values[48]);
         System.out.println("passei do lbl valor 6");
         initFav();
         System.out.println("to no fundo controler mae");

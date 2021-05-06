@@ -128,6 +128,7 @@ public class FavoritosController {
             stage.setScene(new Scene(loader.load(), 1110, 700));
             telaP.setIdUser(id);
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -146,6 +147,7 @@ public class FavoritosController {
             telaP.setIdUser(id);
             telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -166,6 +168,7 @@ public class FavoritosController {
             telaP.setIdUser(id);
             //telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
@@ -186,6 +189,7 @@ public class FavoritosController {
             telaP.setIdUser(id);
             //telaP.initTable();
             stage.show();
+            stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();
             stage2.close();
 
