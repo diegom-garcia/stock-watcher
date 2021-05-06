@@ -181,6 +181,7 @@ public class FundoController {
     private void initFav() {
         fav = false;
         // fav = select
+        imgFavoritado.setVisible(fav);
     }
 
     public void initLabel(String fundo) {

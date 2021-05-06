@@ -153,4 +153,12 @@
             </dependencies>
         </profile>
     </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="706.0" fitWidth="1110.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,5 +18,19 @@
       <Button fx:id="btnFavoritos" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
       <Button fx:id="btnHistorico" layoutX="2.0" layoutY="357.0" mnemonicParsing="false" onAction="#acaoHistorico" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
       <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
+      <TableView fx:id="tabelaCarteira" layoutX="369.0" layoutY="185.0" prefHeight="451.0" prefWidth="708.0">
+        <columns>
+          <TableColumn fx:id="colNome" prefWidth="79.0" text="Nome" />
+          <TableColumn fx:id="colTipo" prefWidth="38.0" text="Tipo" />
+            <TableColumn fx:id="colQtd" prefWidth="44.0" text="Qtd" />
+            <TableColumn fx:id="colPrecoMedio" prefWidth="79.0" text="Preço Medio" />
+            <TableColumn fx:id="colPrecoAtual" prefWidth="81.0" text="Preço Atual" />
+            <TableColumn fx:id="colPatrimonio" prefWidth="114.0" text="Patrimônio Atual" />
+            <TableColumn fx:id="colValorGasto" prefWidth="75.0" text="Valor Gasto" />
+            <TableColumn fx:id="colVariacao" prefWidth="63.0" text="Variação" />
+            <TableColumn fx:id="colVariacaoPor" prefWidth="79.0" text="Variação (%)" />
+            <TableColumn fx:id="colPosicao" prefWidth="56.0" text="Posição" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
