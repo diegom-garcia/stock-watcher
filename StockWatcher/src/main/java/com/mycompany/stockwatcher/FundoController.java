@@ -187,13 +187,16 @@ public class FundoController {
     private void initFav() {
         fav = testaFav();
         // fav = select
+        System.out.println("antes do img favoritado");
         imgFavoritado.setVisible(fav);
+        System.out.println("depois do img favoritado");
     }
 
     public void initLabel(String fundo) {
         fundao = fundo;
         FiiGrabber html = new FiiGrabber();
         String[] values = html.grabFund(fundo);
+        System.out.println("to dentro do initlabel do fundocontroller");
         lblValorAtual.setText(values[0]);
         lblMinSemanas.setText(values[1]);
         lblValorizacao.setText(values[4]);
@@ -210,6 +213,7 @@ public class FundoController {
         lblInicioFundo.setText(values[15]);
         lblCotistas.setText(values[9]);
         lblProxDiv.setText(values[20]);
+
         lblMediaDiv.setText(values[10]);
         lblDvCagr.setText(values[8]);
         lblCaixa.setText(values[7]);
@@ -227,22 +231,33 @@ public class FundoController {
         lblPagamento2.setText(values[35]);
         lblValor2.setText(values[36]);
         lblTipo3.setText(values[37]);
+
         lblDataCom3.setText(values[38]);
         lblPagamento3.setText(values[39]);
+        
         lblValor3.setText(values[40]);
         lblTipo4.setText(values[41]);
+        
         lblDataCom4.setText(values[42]);
+        
         lblPagamento4.setText(values[43]);
         lblValor4.setText(values[44]);
+
         lblTipo5.setText(values[45]);
         lblDataCom5.setText(values[46]);
+        
         lblPagamento5.setText(values[47]);
         lblValor5.setText(values[48]);
+
         lblTipo6.setText(values[49]);
         lblDataCom6.setText(values[50]);
+
         lblPagamento6.setText(values[51]);
+
         lblValor6.setText(values[52]);
+        System.out.println("passei do lbl valor 6");
         initFav();
+        System.out.println("to no fundo controler mae");
     }
     
     //select que mostra se tem o favorito ou nao
@@ -250,12 +265,12 @@ public class FundoController {
         ModeloDAO modelo = new ModeloDAO(idUser);
         List<Modelo> lista = modelo.getListFundo();
         boolean bo = false;
-
+        System.out.println("antes da lista");
         for (int x = 0; x < lista.size(); x++) {
             if (lista.get(x).getNome_ativo().equals(fundao)) {
                 bo = true;
             }
-        }
+        }System.out.println("depois da lista");
         return bo;
     }
     

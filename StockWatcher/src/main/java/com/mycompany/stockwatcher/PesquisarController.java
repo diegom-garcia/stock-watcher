@@ -129,11 +129,12 @@ public class PesquisarController {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFundo.fxml"));
                     FundoController telaP = new FundoController();
                     loader.setController(telaP);
-                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    Scene scene = new Scene(loader.load(), 710, 400);
                     stage.setScene(scene);
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());
                     stage.show();
+                    System.out.println("to dentro do acao pesquisar fii");
                 }else{
                      alert.setContentText("Não encontramos o que você está procurando");
                     alert.show();
@@ -162,7 +163,7 @@ public class PesquisarController {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAcao.fxml"));
                     AcaoController telaP = new AcaoController();
                     loader.setController(telaP);
-                    Scene scene = new Scene(loader.load(), 1110, 700);
+                    Scene scene = new Scene(loader.load(), 710, 400);
                     stage.setScene(scene);
                     telaP.setIdUser(idUser);
                     telaP.initLabel(txtPesquisa.getText());

@@ -75,6 +75,7 @@ public class FiiGrabber {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("to dentro do grab");
         return str;
     }
 

@@ -70,11 +70,11 @@
             <Image url="@image/Estrela%20vazia.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgFavoritado" fitHeight="70.0" fitWidth="70.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/Estrela%20cheia.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnFavorito" layoutX="506.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="45.0" text="btnFavorito" visible="false" />
+      <Button fx:id="btnFavorito" layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#acaoFavoritado" opacity="0.0" prefHeight="32.0" prefWidth="45.0" text="btnFavorito" />
    </children>
 </AnchorPane>
