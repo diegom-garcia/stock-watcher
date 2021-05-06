@@ -18,7 +18,7 @@
       <Button fx:id="btnFavoritos" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#acaoFavoritos" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
       <Button fx:id="btnHistorico" layoutX="2.0" layoutY="357.0" mnemonicParsing="false" onAction="#acaoHistorico" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
       <Button fx:id="btnSobre" layoutX="2.0" layoutY="517.0" mnemonicParsing="false" onAction="#acaoSobre" opacity="0.0" prefHeight="68.0" prefWidth="293.0" text="Button" />
-      <TableView fx:id="tabelaCarteira" layoutX="369.0" layoutY="185.0" prefHeight="451.0" prefWidth="708.0">
+      <TableView fx:id="tabelaCarteira" layoutX="348.0" layoutY="179.0" prefHeight="507.0" prefWidth="708.0">
         <columns>
           <TableColumn fx:id="colNome" prefWidth="79.0" text="Nome" />
           <TableColumn fx:id="colTipo" prefWidth="38.0" text="Tipo" />
