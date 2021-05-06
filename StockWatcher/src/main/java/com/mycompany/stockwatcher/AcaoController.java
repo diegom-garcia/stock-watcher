@@ -5,8 +5,16 @@
  */
 package com.mycompany.stockwatcher;
 
+import com.mycompany.stockwatcher.modelo.Modelo;
+import com.mycompany.stockwatcher.modelo.ModeloDAO;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -166,28 +174,29 @@ public class AcaoController {
     @FXML
     private Button btnFavorito;
     String idUser;
+    String acao;
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
-    void acaoFavoritado(ActionEvent event) {
+    public void acaoFavoritado(ActionEvent event) {
         fav = !fav;
         imgFavoritado.setVisible(fav);
         if (fav) {
-            //insert
+            addFav();
         } else {
-            //delete
+            deletarFav();
         }
     }
 
     private void initFav() {
-        fav = false;
-        // fav = select
+        fav = testaFav();
         imgFavoritado.setVisible(fav);
     }
 
     public void initLabel(String stock) {
+        acao = stock;
         StockGrabber html = new StockGrabber();
         String[] values = html.grabStock(stock);
         lblValorAtual.setText("R$" + values[0]);
@@ -239,6 +248,49 @@ public class AcaoController {
         lblPagamento6.setText(values[47]);
         lblValor6.setText(values[48]);
         initFav();
+    }
+
+    public boolean testaFav() {
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        List<Modelo> lista = modelo.getListAcoes();
+        boolean bo = false;
+
+        for (int x = 0; x < lista.size(); x++) {
+            if (lista.get(x).getNome_ativo().equals(acao)) {
+                bo = true;
+            }
+        }
+        return bo;
+    }
+
+    public void addFav() {
+
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        Modelo modelao = new Modelo();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        try {
+            modelao.setId_usuario(Integer.parseInt(idUser));
+            modelao.setNome_ativo(acao);
+            modelao.setTipo_ativo("A");
+            modelo.add(modelao);
+        } catch (Exception ex) {
+            alert.setContentText("Não foi possível adicionar este item a tabela Favorito");
+            alert.show();
+        }
+    }
+
+    public void deletarFav() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        ModeloDAO modelo = new ModeloDAO(idUser);
+        try {
+            modelo.deleteFav(acao);
+        } catch (Exception ex) {
+            alert.setContentText("Não foi possível remover este item");
+            alert.show();
+
+        }
+
     }
 
 }

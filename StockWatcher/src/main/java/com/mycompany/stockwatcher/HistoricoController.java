@@ -83,7 +83,7 @@ public class HistoricoController {
         Stage stage = new Stage();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPesquisar.fxml"));
-            AcaoController telaP = new AcaoController();
+            PesquisarController telaP = new  PesquisarController();
             loader.setController(telaP);
             stage.setScene(new Scene(loader.load(), 1110, 700));
 
