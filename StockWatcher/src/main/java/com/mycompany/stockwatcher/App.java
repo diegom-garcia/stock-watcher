@@ -15,21 +15,17 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  * JavaFX App
  */
 public class App extends Application {
-    
+
     private static Scene scene;
     private Connection connection;
     private Statement statement;
-    
 
-    
     @Override
     public void start(Stage stage) throws IOException {
-       
         scene = new Scene(loadFXML("TelaLogin"), 600, 750);
         
         //abrirConexao();
@@ -37,23 +33,36 @@ public class App extends Application {
         stage.setResizable(false);
         stage.show();
         //funcionaPeloAmorDeDeus();
-       
     }
-    
+
+    public void teste(Stage stage) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCarteira.fxml"));
+            CarteiraController telaP = new CarteiraController();
+            loader.setController(telaP);
+            stage.setScene(new Scene(loader.load(), 1110, 700));
+            telaP.setIdUser("77");
+            stage.show();
+            stage.setResizable(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-        
+
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
-        
+
     }
-    
 
     public static void main(String[] args) {
         launch();
     }
+
     public Statement getStatement() {
         return statement;
     }
