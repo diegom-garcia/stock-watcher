@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 //import javafx.scene.control.Cell;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -99,6 +101,12 @@ public class CarteiraController {
         trocaTelaDuvida();
     }
 
+    @FXML
+    void acaoExcel(ActionEvent event) {
+        System.out.println("FOI AQUI");
+        popular_tabela();
+    }
+
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
@@ -114,12 +122,15 @@ public class CarteiraController {
         List<DadosExcel> tabelaExcel = null;
         DadosExcel excel = new DadosExcel();
         Integer qtd;
+        
         //obtaining input bytes from a file  
         try {
             FileInputStream fis = new FileInputStream(file);   //obtaining bytes from the file  
+            System.out.println(fis.getFD());
+            System.out.println(file.getAbsoluteFile());
 //creating Workbook instance that refers to .xlsx file  
             XSSFWorkbook wb = new XSSFWorkbook(fis);
-            XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object  
+            XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object 
             Iterator<Row> itr = sheet.iterator();    //iterating over excel file  
             while (itr.hasNext()) {
                 Row row = itr.next();
@@ -150,13 +161,29 @@ public class CarteiraController {
 
     public void popular_tabela() {
         File file = getFile();
+        System.out.println("After File");
         List<DadosExcel> excel = getExcel(file);
+        System.out.println("After Excel");
         List<Carteira> dados = pegar_tabela(excel);
+        System.out.println("After Table");
+        tabela(dados);
+        System.out.println("Working :)");
         //tabelaAcoes.setItems(FXCollections.observableArrayList(carteiras));
     }
 
     private void tabela(List<Carteira> dados) {
+        colNome.setCellValueFactory(new PropertyValueFactory("nome"));
+        colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
+        colQtd.setCellValueFactory(new PropertyValueFactory("qtd"));
+        colPrecoMedio.setCellValueFactory(new PropertyValueFactory("preco_medio"));
+        colPrecoAtual.setCellValueFactory(new PropertyValueFactory("preco_atual"));
+        colPatrimonio.setCellValueFactory(new PropertyValueFactory("patrimanio_atual"));
+        colValorGasto.setCellValueFactory(new PropertyValueFactory("valor_gasto"));
+        colVariacao.setCellValueFactory(new PropertyValueFactory("variação_valor"));
+        colVariacaoPor.setCellValueFactory(new PropertyValueFactory("variação_porc"));
+        colPosicao.setCellValueFactory(new PropertyValueFactory("posição"));
 
+        tabelaCarteira.setItems((ObservableList<Carteira>) dados);
     }
 
     private List<Carteira> pegar_tabela(List<DadosExcel> excel) {
@@ -302,6 +329,7 @@ public class CarteiraController {
             e.printStackTrace();
         }
     }
+
     void trocaTelaDuvida() {
         Stage stage = new Stage();
         try {
