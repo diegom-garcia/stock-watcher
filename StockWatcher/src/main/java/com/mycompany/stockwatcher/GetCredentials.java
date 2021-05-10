@@ -9,6 +9,8 @@ package com.mycompany.stockwatcher;
  *
  * @author DIEGO
  */
+
+//Troque o usuario e senha para o do seu banco
 public class GetCredentials {
     private String user;
     private String password;
