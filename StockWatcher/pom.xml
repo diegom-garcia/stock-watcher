@@ -109,11 +109,7 @@
                 <jdk>[11,)</jdk>
             </activation>
             <dependencies>
-                <dependency>
-                    <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
-                    <version>8.0.24</version>
-                </dependency>
+
                 <dependency>
                     <groupId>org.apache.poi</groupId>
                     <artifactId>poi</artifactId>
@@ -154,6 +150,11 @@
         </profile>
     </profiles>
     <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.24</version>
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

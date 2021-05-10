@@ -142,15 +142,14 @@ public class HistoricoController {
     void trocaTelaSobre(String id) {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaFavoritos.fxml"));
-            FavoritosController telaP = new FavoritosController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaSobre.fxml"));
+            SobreController telaP = new SobreController();
             loader.setController(telaP);
             Scene scene = new Scene(loader.load(), 1110, 700);
             scene.getStylesheets().add("Style.css");
             stage.setScene(scene);;
 
-            telaP.setIdUser(id);
-            telaP.initTable();
+            telaP.setIdUser(id);;
             stage.show();
             stage.setResizable(false);
             Stage stage2 = (Stage) btnCarteira.getScene().getWindow();

@@ -1,5 +1,6 @@
 package conexao;
 
+import com.mycompany.stockwatcher.GetCredentials;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,9 +14,9 @@ public class DBConnection {
     private Statement statement;
 
     public Connection getConnection() {
-
+        GetCredentials credentials = new GetCredentials();
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", credentials.getUser(), credentials.getPassword());
         } catch (SQLException ex) {
             System.out.println("deu erro no DBconnection");
             throw new RuntimeException(ex);
@@ -37,9 +38,10 @@ public class DBConnection {
     }
 
     private void abrirConexao() {
+        GetCredentials credentials = new GetCredentials();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", credentials.getUser(), credentials.getPassword());
             statement = connection.createStatement();
         } catch (Exception e) {
             System.out.println(e);
