@@ -66,10 +66,10 @@ public class TelaRegisterController implements Initializable {
     private void acaoDoBotao(ActionEvent event) {
         Alert alert = new Alert(AlertType.ERROR);
         Alert alert2 = new Alert(AlertType.CONFIRMATION);
-
+        GetCredentials credentials = new GetCredentials();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", credentials.getUser(), credentials.getPassword());
             statement = connection.createStatement();
         } catch (Exception e) {
             System.out.println(e);

@@ -19,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sun.security.krb5.Credentials;
+import sun.security.krb5.EncryptionKey;
 
 public class LoginController {
 
@@ -73,15 +75,16 @@ public class LoginController {
         Alert alert = new Alert(AlertType.ERROR);
         String teste = txtUsername.getText();
         String novo;
-
+        GetCredentials credentials = new GetCredentials();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", "root", "123");
+            //Class.forName("com.mysql.jdbc.driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tradeworldbase", credentials.getUser(), credentials.getPassword());
             statement = connection.createStatement();
         } catch (Exception e) {
             System.out.println(e);
-            System.out.println("oie");
-
+            alert.setContentText("Conexão com o banco falhada");
+            alert.show();
         }
         if (txtUsername.getText().equals("") || txtPassword.getText().equals("")) {
             alert.setContentText("Preencha todos os campos");
