@@ -32,7 +32,7 @@ public class ModeloDAO {
     public ModeloDAO(String id) {
         this.idUsuario = id;
         this.connection = new DBConnection().getConnection();
-        System.out.println(id);
+        //System.out.println(id);
     }
 
     public boolean add(Modelo m) {
@@ -51,11 +51,27 @@ public class ModeloDAO {
             return false;
         }
     }
+        public boolean addFav(Modelo m) {
+        try {
+            String sql = "INSERT INTO favorito(nome_ativo,tipo_ativo,id_usuario) values (?,?,?)";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, m.getNome_ativo());
+            stmt.setString(2, m.getTipo_ativo());
+            stmt.setInt(3, m.getId_usuario());
+            stmt.execute();
+            return true;
+
+        } catch (SQLException ex) {
+            System.out.println("deu erro no modelo dao na funcao addFav");
+            Logger.getLogger(ModeloDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 
     public List<Modelo> getListAcoes() {
         List<Modelo> modelo = new ArrayList<>();
         String sql = "select nome_ativo from favorito where tipo_ativo = 'A' and id_usuario = " + idUsuario;
-        System.out.println(idUsuario);
+        //System.out.println(idUsuario);
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet result = stmt.executeQuery();
