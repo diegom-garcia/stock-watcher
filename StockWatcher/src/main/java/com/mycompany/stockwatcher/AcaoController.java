@@ -268,12 +268,11 @@ public class AcaoController {
         ModeloDAO modelo = new ModeloDAO(idUser);
         Modelo modelao = new Modelo();
         Alert alert = new Alert(Alert.AlertType.ERROR);
-
         try {
             modelao.setId_usuario(Integer.parseInt(idUser));
             modelao.setNome_ativo(acao);
             modelao.setTipo_ativo("A");
-            modelo.add(modelao);
+            modelo.addFav(modelao);
         } catch (Exception ex) {
             alert.setContentText("Não foi possível adicionar este item a tabela Favorito");
             alert.show();

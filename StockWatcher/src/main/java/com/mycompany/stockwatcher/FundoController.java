@@ -284,7 +284,7 @@ public class FundoController {
             modelao.setId_usuario(Integer.parseInt(idUser));
             modelao.setNome_ativo(fundao);
             modelao.setTipo_ativo("F");
-            modelo.add(modelao);
+            modelo.addFav(modelao);
         } catch (Exception ex) {
             alert.setContentText("Não foi possível adicionar este item a tabela Favorito");
             alert.show();
